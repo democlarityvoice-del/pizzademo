@@ -148,14 +148,13 @@ tr:hover .listen-btn {
 (function () {
   // Pools
   const names = ["Carlos Rivera","Emily Tran","Mike Johnson","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
-  const extensions = [201,203,204,207,211,215,218,219,222,227,231,235];
+  const extensions = [200,201,202,203];
   const areaCodes = ["989","517","248","810","313"]; // real ACs; 555-01xx keeps full number fictional
-  const CALL_QUEUE = "CallQueue", VMAIL = "VMail", SPEAK = "SpeakAccount";
+  const CALL_QUEUE = "CallQueue";
 
   // Outbound agent display names
-  const firstNames = ["Nick","Sarah","Mike","Lisa","Tom","Jenny","Alex","Maria","John","Kate","David","Emma","Chris","Anna","Steve","Beth","Paul","Amy","Mark","Jess"];
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const OUTBOUND_RATE = 0.30; // ~30% outbound, 70% inbound
+  const firstNames = ["Line One", "Line Two", "Line Three", "Line Four"];  
+  const OUTBOUND_RATE = 0.10; // ~10% outbound, 90% inbound
 
   // State
   const calls = [];
@@ -227,9 +226,7 @@ tr:hover .listen-btn {
     const from = randomPhone();
     const cnam = randomName();
     const dialed = randomDialed();
-    const to = Math.random() < 0.05
-      ? (Math.random() < 0.03 ? SPEAK : VMAIL)
-      : CALL_QUEUE;
+    const to = CALL_QUEUE;
 
     return {
       from, cnam, dialed, to, ext,
@@ -246,20 +243,17 @@ tr:hover .listen-btn {
   // Lifecycle
   function updateCalls() {
     // Occasionally remove one
-    if (calls.length > 5 || Math.random() < 0.3) {
+    if (calls.length > 4 || Math.random() < 0.10) {
       if (calls.length) calls.splice(Math.floor(Math.random()*calls.length), 1);
     }
-    // Keep up to 5
-    if (calls.length < 5) calls.push(generateCall());
+    // Keep up to 4
+    if (calls.length < 4) calls.push(generateCall());
 
     // State transitions for inbound only
     const now = Date.now();
     calls.forEach(c => {
       if (!c.outbound && c.to === CALL_QUEUE && now - c.start > 5000) {
         c.to = "Ext. " + c.ext;  // no agent name here
-      }
-      if (!c.outbound && c.to === SPEAK && now - c.start > 2000) {
-        c.to = VMAIL;
       }
     });
   }
