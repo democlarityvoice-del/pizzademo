@@ -2499,9 +2499,7 @@ if (!window.__cvAgentsPanelInit) {
 
   function buildRows(agent){
     var rows = [
-      {num:'300', title:'Main Routing (300)'},
-      {num:'301', title:'New Sales (301)'},
-      {num:'302', title:'Existing Customer (302)'}
+      {num:'300', title:'Main Routing (123)'}
     ];
     if (String(agent.ext)==='202') rows.push({num:'303', title:'Billing (303)'});
 
