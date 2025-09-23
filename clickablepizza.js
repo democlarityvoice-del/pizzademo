@@ -6614,9 +6614,9 @@ function openAgentListenModal(agentExt, row, btn) {
   const createWidget = (title, chartId) => {
       let widgetType = 'unknown';
       if (title.includes('Summary')) widgetType = 'summary';
-      else if (title.includes('Marketing')) widgetType = 'inbound';
+      else if (title.includes('Inbound')) widgetType = 'inbound';
       else if (title.includes('Outbound')) widgetType = 'outbound';
-      else if (title.includes('Employee')) widgetType = 'employee';
+      else if (title.includes('Extension')) widgetType = 'employee';
     
       const li = document.createElement('li');
       li.className = 'dashboard-widget cv-demo-chart-injected';
@@ -6683,8 +6683,8 @@ function openAgentListenModal(agentExt, row, btn) {
 
 
     container.appendChild(createWidget('Summary by Hour for Today', 'chart-summary'));
-    container.appendChild(createWidget('Inbound Calls This Week by Marketing Number', 'chart-inbound'));
-    container.appendChild(createWidget('Calls by Employee This Week', 'chart-employee'));
+    container.appendChild(createWidget('Inbound Calls This Week by Source', 'chart-inbound'));
+    container.appendChild(createWidget('Calls by Extension This Week', 'chart-employee'));
     container.appendChild(createWidget('Outbound Calls This Week', 'chart-outbound'));
 
     loadAndDrawCharts();
@@ -6795,7 +6795,7 @@ function openAgentListenModal(agentExt, row, btn) {
       
         // PIE CHART (Employee - real totals)
       const pieData = google.visualization.arrayToDataTable([
-          ['Employee', 'Calls'],
+          ['Extension', 'Calls'],
           ['Line One', 44],
           ['Line Two', 26],
           ['Line Three', 35],
@@ -6883,16 +6883,7 @@ function openAgentListenModal(agentExt, row, btn) {
     
             <tbody>
               <tr>
-                <td style="padding: 4px 8px;">Main Routing (300)</td><td>0</td><td>3</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-                <td style="padding: 4px 8px;">New Sales (301)</td><td>3</td><td>2</td><td>3</td><td>4</td><td>1</td><td>5</td><td>3</td>
-              </tr>
-              <tr>
-                <td style="padding: 4px 8px;">Existing Customer (302)</td><td>0</td><td>3</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-                <td style="padding: 4px 8px;">Billing (303)</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td>
+                <td style="padding: 4px 8px;">Main Routing (123)</td><td>0</td><td>3</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td>         
               </tr>
             </tbody>
           </table>
@@ -7155,7 +7146,7 @@ function openAgentListenModal(agentExt, row, btn) {
     
       modal.innerHTML = `
         <div style="background: #f7931e; color: black; font-weight: bold; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px;">
-          <span>Calls by Employee This Week</span>
+          <span>Calls by Extension This Week</span>
           <div style="display: flex; gap: 20px;">
             <img src="https://raw.githubusercontent.com/democlarityvoice-del/clickabledemo/refs/heads/main/file-excel-solid-full.svg" title="Export to Excel" style="height: 18px; cursor: pointer;">
             <img src="https://raw.githubusercontent.com/democlarityvoice-del/clickabledemo/refs/heads/main/print-solid-full.svg" title="Print" style="height: 18px; cursor: pointer;">
@@ -7169,7 +7160,7 @@ function openAgentListenModal(agentExt, row, btn) {
               <table style="border-collapse: collapse; font-size: 13px; min-width: 500px;">            
                 <thead>
                   <tr style="background: #eee;">
-                    <th style="padding: 4px 8px; text-align: left;">Employee</th>
+                    <th style="padding: 4px 8px; text-align: left;">Extension</th>
                     <th>Sun</th>
                     <th>Mon</th>
                     <th>Tue</th>
@@ -7199,7 +7190,7 @@ function openAgentListenModal(agentExt, row, btn) {
                 
            function renderEmployeeChart(containerId) {
          const data = google.visualization.arrayToDataTable([
-              ['Employee', 'Calls'],
+              ['Extension', 'Calls'],
               ['Line One', 44],
               ['Line Two', 26],
               ['Line Three', 35],
