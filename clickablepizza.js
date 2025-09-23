@@ -722,7 +722,7 @@ if (document.readyState === 'loading') {
   function cvReplaceStats() {
     const replacements = {
       // Today
-      'current-active-calls': '5',
+      'current-active-calls': '4',
       'calls-today': '37',
       'total-minutes-today': '263',
       'avg-talkd-time': '7',
@@ -735,14 +735,14 @@ if (document.readyState === 'loading') {
      'peak-active-current': '25',
      'sms_inbound_current': '122',
      'sms_outbound_current': '282',
-     'video_meetings_current': '15',
+     'video_meetings_current': '0',
 
      // Previous Month
      'total-min-last': '62034',
      'peak-active-last': '29',
      'sms_inbound_last': '958',
      'sms_outbound_last': '892',
-     'video_meetings_last': '23'
+     'video_meetings_last': '0'
    };
 
   for (const [id, value] of Object.entries(replacements)) {
@@ -1098,7 +1098,7 @@ if (!window.__cvQueuesTilesInit) {
 
   // ---- DECLARE CALL CENTER QUEUE DATA (demo counts) ----
   const QUEUE_DATA = [
-    { key:'main',    title:'Main Routing (123)',         active:3, waiting:2, timer:true,  idle:4 }
+    { key:'main',    title:'Main Routing (123)',         active:3, waiting:2, timer:true,  idle:4}
   ];
 
   // ---- UTIL: CALL CENTER scheduleInject (safe RAF/timeout) ----
@@ -3688,9 +3688,9 @@ document.addEventListener('click', function (e) {
 
   // Disposition -> Reason options (exact strings requested)
   var NOTES_REASONS = {
-    'Inbound Sales' : ['Existing customer question', 'Follow up', 'Referral'],
-    'Outbound Sales': ['Cold Call', 'Follow-up']
-  };
+     'Inbound Sales' : ['Order Inquiry', 'New Order', 'Status Check'],
+     'Outbound Sales': ['Order Confirmation', 'Location Check']
+    };
 
   // Ensure a modal exists (uses the same .cv-modal styles you already have)
   function ensureNotesModal () {
@@ -6263,8 +6263,8 @@ ctasHost.appendChild(overlay);
 
 // --- Agent Notes POPover (matches queue style) ---
 const AGENT_NOTES_REASONS = {
-  'Inbound Sales' : ['Existing customer question', 'Follow up', 'Referral'],
-  'Outbound Sales': ['Cold Call', 'Follow-up']
+   'Inbound Sales' : ['Order Inquiry', 'New Order', 'Status Check'],
+  'Outbound Sales': ['Order Confirmation', 'Location Check']
 };
 
 function openAgentNotesModal(agentExt, rowOrBtn) {
