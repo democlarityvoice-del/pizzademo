@@ -6708,15 +6708,16 @@ function openAgentListenModal(agentExt, row, btn) {
       container.innerHTML = '<div id="summary-chart-google" style="width:100%; height:400px;"></div>';
     
       const data = google.visualization.arrayToDataTable([
-          ['Hour', 'Main Routing (123)'],    
-          ['10am', 3],      
-          ['11am', 14],      
-          ['12pm', 21],      
-          ['1pm', 25],
-          ['2pm', 23]
-          ['3pm', 13],
-          ['4pm', 12], 
+            ['Hour', 'Main Routing (123)'],    
+            ['10am', 3],      
+            ['11am', 14],      
+            ['12pm', 21],      
+            ['1pm', 25],
+            ['2pm', 23],
+            ['3pm', 13],
+            ['4pm', 12], 
         ]);
+
 
     
       const options = {
