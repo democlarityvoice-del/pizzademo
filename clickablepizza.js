@@ -6711,7 +6711,7 @@ function openAgentListenModal(agentExt, row, btn) {
           ['Hour', 'Main Routing (123)'],    
           ['10am', 3],      
           ['11am', 14],      
-          ['12pm', 21],      /
+          ['12pm', 21],      
           ['1pm', 25],
           ['2pm', 23]
           ['3pm', 13],
