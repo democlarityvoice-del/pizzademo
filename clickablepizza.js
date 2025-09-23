@@ -149,17 +149,17 @@ tr:hover .listen-btn {
 (function () {
   // Pools
   const names = ["Carlos Rivera","Emily Tran","Jack Burton","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
-  const extensions = [200, 201, 202, 203];
+  const extensions = [201, 202, 203, 204];
   const areaCodes = ["989","517","248","810","313"]; // real ACs; 555-01xx keeps full number fictional
   const CALL_QUEUE = "CallQueue";
 
 
    // Outbound agent display names (literal)
   const agentNameByExt = {
-    200: "Line One",
-    201: "Line Three",
-    202: "Line Three",
-    203: "Line Four"
+    201: "Line One",
+    202: "Line Two",
+    203: "Line Three",
+    204: "Line Four"
   };
 
   const OUTBOUND_RATE = 0.10; // ~10% outbound, 90% inbound
@@ -1173,13 +1173,13 @@ if (!window.__cvQueuesTilesInit) {
   const REAL_DIDS      = ['(567) 200-5030','(567) 200-5060','(567) 200-5090'];
   const SAFE_FAKE_AC   = ['511','600','311','322','456'];  
   const CVQ_CACHE      = { active:{}, waiting:{} };
-  const AGENT_EXT_POOL = [200, 201, 202, 203];
+  const AGENT_EXT_POOL = [201, 202, 203, 204];
    
   const agentNameByExt = {
-  200: "Line One",
-  201: "Line Three",
-  202: "Line Three",
-  203: "Line Four"
+  201: "Line One",
+  202: "Line Two",
+  203: "Line Three",
+  204: "Line Four"
 };
   
 
@@ -1748,10 +1748,10 @@ if (!window.__cvAgentsPanelInit) {
 
   // Agents (Bob on lunch; Mike/Brittany/Mark show phone icon)
   var AGENTS = [
-  { name: 'Line One',      ext: 200, status: 'busy',  icon: 'phone' },
-  { name: 'Line Three',      ext: 201, status: 'busy',    icon: 'phone'  },
-  { name: 'Line Three',          ext: 202, status: 'online', icon: 'phone'  },
-  { name: 'Line Four',      ext: 203, status: 'busy', icon: 'phone'  }
+  { name: 'Line One',      ext: 201, status: 'busy',  icon: 'phone' },
+  { name: 'Line Two',      ext: 202, status: 'busy',    icon: 'phone'  },
+  { name: 'Line Three',          ext: 203, status: 'online', icon: 'phone'  },
+  { name: 'Line Four',      ext: 204, status: 'busy', icon: 'phone'  }
  ];
 
 
@@ -2187,7 +2187,7 @@ if (!window.__cvAgentsPanelInit) {
     var label = (row.querySelector('.cv-name') && row.querySelector('.cv-name').textContent) || '';
     var extMatch  = label.match(/Ext\.?\s*(\d{2,6})/i);
     var nameMatch = label.match(/\(([^)]+)\)/);
-    var ext       = (extMatch && extMatch[1]) || '200';
+    var ext       = (extMatch && extMatch[1]) || '201';
     var agentName = (nameMatch && nameMatch[1]) || 'Agent';
 
     var variant = (parseInt(ext,10) % 2 === 0) ? 'B' : 'A';
@@ -3197,7 +3197,7 @@ const rows = [
     toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 10:02 pm", duration:"0:56",
     disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
-  { cnam:"Line Three",   from:"202", q1:"4.4", dialed:"(517) 555-0162",
+  { cnam:"Line Three",   from:"203", q1:"4.4", dialed:"(517) 555-0162",
     toName:"", to:"(517) 555-0162", q2:"4.3", date:"Today, 9:59 pm",
     duration:"1:53", disposition:"", release:"Term: Bye", ctgType:"outbound" },
 
@@ -3209,7 +3209,7 @@ const rows = [
     toName:"", to:"Ext. 203", q2:"4.3", date:"Today, 9:55 pm",
     duration:"0:56", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
-  { cnam:"Line Four", from:"203", q1:"4.5", dialed:"(248) 555-0110",
+  { cnam:"Line Four", from:"204", q1:"4.5", dialed:"(248) 555-0110",
     toName:"", to:"(248) 555-0110", q2:"4.4", date:"Today, 9:53 pm",
     duration:"2:36", disposition:"", release:"Orig: Bye", ctgType:"outbound" },
 
@@ -3238,7 +3238,7 @@ const rows = [
     duration:"15:51", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Maya Brooks",  from:"(517) 555-0126", q1:"4.4", dialed:"567-200-5030",
-    toName:"", to:"Ext. 200", q2:"4.2", date:"Today, 9:39 pm",
+    toName:"", to:"Ext. 201", q2:"4.2", date:"Today, 9:39 pm",
     duration:"14:27", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
   { cnam:"Jack Burton",  from:"(517) 555-0148", q1:"4.3", dialed:"567-200-5090",
@@ -3253,7 +3253,7 @@ const rows = [
     toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 9:32 pm",
     duration:"12:05", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
-  { cnam:"Line Three",     from:"202", q1:"4.5", dialed:"(248) 555-0191",
+  { cnam:"Line Three",     from:"203", q1:"4.5", dialed:"(248) 555-0191",
     toName:"", to:"(248) 555-0191", q2:"4.4", date:"Today, 9:30 pm",
     duration:"27:22", disposition:"", release:"Orig: Bye", ctgType:"outbound" },
 
@@ -3261,7 +3261,7 @@ const rows = [
     toName:"", to:"Ext. 201", q2:"4.2", date:"Today, 9:28 pm",
     duration:"22:17", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
-  { cnam:"Line One", from:"200", q1:"4.4", dialed:"(810) 555-0112",
+  { cnam:"Line One", from:"201", q1:"4.4", dialed:"(810) 555-0112",
     toName:"", to:"(810) 555-0112", q2:"4.3", date:"Today, 9:26 pm",
     duration:"17:20", disposition:"", release:"Orig: Bye", ctgType:"outbound" },
 
@@ -3281,7 +3281,7 @@ const rows = [
     toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 9:17 pm",
     duration:"10:44", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
-  { cnam:"Line Two", from:"201", q1:"4.5", dialed:"(989) 555-0140",
+  { cnam:"Line Two", from:"202", q1:"4.5", dialed:"(989) 555-0140",
     toName:"", to:"(989) 555-0140", q2:"4.4", date:"Today, 9:15 pm",
     duration:"6:05", disposition:"", release:"Term: Bye", ctgType:"outbound" },
 
@@ -3289,7 +3289,7 @@ const rows = [
     toName:"", to:"CallQueue", q2:"4.3", date:"Today, 9:12 pm",
     duration:"0:39", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
-  { cnam:"Line Two", from:"201", q1:"4.4", dialed:"(517) 555-0170",
+  { cnam:"Line Two", from:"202", q1:"4.4", dialed:"(517) 555-0170",
     toName:"", to:"(517) 555-0170", q2:"4.5", date:"Today, 9:10 pm",
     duration:"11:33", disposition:"", release:"Orig: Bye", ctgType:"outbound" }
 ];
@@ -3458,10 +3458,10 @@ var ICON_DOT = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 
 // Agent directory (ext → name)
 var AGENTS = [
-  {ext:'200', name:'Line One'},
-  {ext:'201', name:'Line Two'},
-  {ext:'202', name:'Line Three'},
-  {ext:'203', name:'Line Four'}  
+  {ext:'201', name:'Line One'},
+  {ext:'202', name:'Line Two'},
+  {ext:'203', name:'Line Three'},
+  {ext:'204', name:'Line Four'}  
 ];
 
 // More forgiving ext extractor: "Ext. 206", "(266p)", "266p", "x206"
@@ -4545,30 +4545,30 @@ const keyNorm = s => (s || '').replace(/\s+/g,' ').trim().toLowerCase();
 
 // --- Main Routing
 CVQS_QUEUE_ROWS_BY_NUM["123"] = [
-  `<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>201</td><td>201</td><td>Line Two</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>203</td><td>203</td><td>Line Four</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 10:58 am</td><td>Lola Turner</td><td>517-555-0170</td><td>567-200-5060</td><td>4:47</td><td>202</td><td>202</td><td>Line Three</td><td>1:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 10:27 am</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5060</td><td>4:21</td><td>200</td><td>200</td><td>Line One</td><td>4:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 10:23 am</td><td>Monica Alvarez</td><td>(989) 555-0113</td><td>567-200-5030</td><td>2:49</td><td>200</td><td>200</td><td>Line One</td><td>1:52</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>201</td><td>201</td><td>Line Two</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>203</td><td>203</td><td>Line Four</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 08:16 am</td><td>Leif Hendricksen</td><td>517-555-0162</td><td>567-200-5090</td><td>8:17</td><td>200</td><td>200</td><td>Line One</td><td>2:27</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 08:08 am</td><td>Coco LaBelle</td><td>(989) 555-0672</td><td>567-200-5030</td><td>0:22</td><td>201</td><td>201</td><td>Line Two</td><td>5:55</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>202</td><td>202</td><td>Line Two</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>204</td><td>204</td><td>Line Four</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 10:58 am</td><td>Lola Turner</td><td>517-555-0170</td><td>567-200-5060</td><td>4:47</td><td>203</td><td>203</td><td>Line Three</td><td>1:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 10:27 am</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5060</td><td>4:21</td><td>201</td><td>201</td><td>Line One</td><td>4:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 10:23 am</td><td>Monica Alvarez</td><td>(989) 555-0113</td><td>567-200-5030</td><td>2:49</td><td>201</td><td>201</td><td>Line One</td><td>1:52</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line One</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>201</td><td>201</td><td>Line One</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>204</td><td>204</td><td>Line Four</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 08:16 am</td><td>Leif Hendricksen</td><td>517-555-0162</td><td>567-200-5090</td><td>8:17</td><td>201</td><td>201</td><td>Line One</td><td>2:27</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 08:08 am</td><td>Coco LaBelle</td><td>(989) 555-0672</td><td>567-200-5030</td><td>0:22</td><td>201</td><td>201</td><td>Line One</td><td>5:55</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
 
-  `<tr><td>Today, 1:26 pm</td><td>Carlos Riviera</td><td>(517) 555-0177</td><td>567-200-5060</td><td>3:52</td><td>202</td><td>202</td><td>Line Three</td><td>1:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>201</td><td>201</td><td>Line Two</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:21 pm</td><td>John Travers</td><td>810-555-0192</td><td>567-200-5090</td><td>2:27</td><td>203</td><td>203</td><td>Line Four</td><td>9:41</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>200</td><td>200</td><td>Line One</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 11:58 am</td><td>Freddie Travis</td><td>800-649-2907</td><td>567-200-5090</td><td>3:48</td><td>203</td><td>203</td><td>Line Four</td><td>21:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 11:58 am</td><td>Line Two</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>202</td><td>202</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:26 pm</td><td>Carlos Riviera</td><td>(517) 555-0177</td><td>567-200-5060</td><td>3:52</td><td>203</td><td>203</td><td>Line Three</td><td>1:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>201</td><td>201</td><td>Line One</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:21 pm</td><td>John Travers</td><td>810-555-0192</td><td>567-200-5090</td><td>2:27</td><td>204</td><td>204</td><td>Line Four</td><td>9:41</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>201</td><td>201</td><td>Line One</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:58 am</td><td>Freddie Travis</td><td>800-649-2907</td><td>567-200-5090</td><td>3:48</td><td>204</td><td>204</td><td>Line Four</td><td>21:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:58 am</td><td>Jack Burton</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>203</td><td>203</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
 
   // the 5 adjusted ones (with corrected extensions)
-  `<tr><td>Today, 2:28 pm</td><td>Noah James</td><td>(248) 555-0123</td><td>248-436-3442</td><td>1:13</td><td>214</td><td>201</td><td>Line Two</td><td>4:02</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 2:19 pm</td><td>Camila Ortiz</td><td>(734) 555-0148</td><td>248-436-3445</td><td>0:57</td><td>200</td><td>200</td><td>Line One</td><td>2:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 2:05 pm</td><td>Owen Patel</td><td>(586) 555-0162</td><td>567-200-5090</td><td>2:41</td><td>213</td><td>203</td><td>Line Four</td><td>6:33</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>203</td><td>203</td><td>Line Four</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:43 pm</td><td>Michael Chen</td><td>(313) 555-0195</td><td>248-436-3450</td><td>3:26</td><td>201</td><td>201</td><td>Line Two</td><td>5:04</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
+  `<tr><td>Today, 2:28 pm</td><td>Noah James</td><td>(248) 555-0123</td><td>248-436-3442</td><td>1:13</td><td>201</td><td>201</td><td>Line One</td><td>4:02</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 2:19 pm</td><td>Camila Ortiz</td><td>(734) 555-0148</td><td>248-436-3445</td><td>0:57</td><td>201</td><td>201</td><td>Line One</td><td>2:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 2:05 pm</td><td>Owen Patel</td><td>(586) 555-0162</td><td>567-200-5090</td><td>2:41</td><td>204</td><td>204</td><td>Line Four</td><td>6:33</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>204</td><td>204</td><td>Line Four</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:43 pm</td><td>Michael Chen</td><td>(313) 555-0195</td><td>248-436-3450</td><td>3:26</td><td>202</td><td>202</td><td>Line Two</td><td>5:04</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
 ];
 CVQS_QUEUE_ROWS_BY_NAME[keyNorm("Main Routing")] = CVQS_QUEUE_ROWS_BY_NUM["123"];
 
@@ -4576,11 +4576,11 @@ CVQS_QUEUE_ROWS_BY_NAME[keyNorm("Main Routing")] = CVQS_QUEUE_ROWS_BY_NUM["123"]
 
 // Your current default five rows for everyone else
 const CVQS_DEFAULT_ROWS = [
-  `<tr><td>Today, 2:13 pm</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5030</td><td>1:22</td><td>201</td><td>201</td><td>Line Two</td><td>14:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 2:06 pm</td><td>Leo Knight</td><td>(313) 555-0106</td><td>567-200-5060</td><td>2:49</td><td>201</td><td>201</td><td>Line Two</td><td>0:59</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:58 pm</td><td>Ava Chen</td><td>(313) 555-0151</td><td>567-200-5030</td><td>1:01</td><td>203</td><td>203</td><td>Line Four</td><td>5:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:54 pm</td><td>Zoe Miller</td><td>(248) 555-0165</td><td>567-200-5090</td><td>3:47</td><td>202</td><td>202</td><td>Line Three</td><td>3:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:50 pm</td><td>Raj Patel</td><td>(810) 555-0187</td><td>567-200-5090</td><td>4:24</td><td>201</td><td>201</td><td>Line Two</td><td>5:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
+  `<tr><td>Today, 2:13 pm</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5030</td><td>1:22</td><td>201</td><td>201</td><td>Line One</td><td>14:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 2:06 pm</td><td>Leo Knight</td><td>(313) 555-0106</td><td>567-200-5060</td><td>2:49</td><td>201</td><td>201</td><td>Line One</td><td>0:59</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:58 pm</td><td>Ava Chen</td><td>(313) 555-0151</td><td>567-200-5030</td><td>1:01</td><td>204</td><td>204</td><td>Line Four</td><td>5:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:54 pm</td><td>Zoe Miller</td><td>(248) 555-0165</td><td>567-200-5090</td><td>3:47</td><td>203</td><td>203</td><td>Line Three</td><td>3:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:50 pm</td><td>Raj Patel</td><td>(810) 555-0187</td><td>567-200-5090</td><td>4:24</td><td>201</td><td>201</td><td>Line One</td><td>5:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
 ];
 
 
@@ -5261,7 +5261,7 @@ function cvqsBuildCtgEvents(tr, queueNameOnly, queueNumber) {
 
   // 4) Ring cascade (use the table’s known agent plus a familiar list to mimic your order)
   const ringRoster = [
-    'Line One (200)','Line Two (201)','Line Three (202)','Line Four (203)'  
+    'Line One (201)','Line Two (202)','Line Three (203)','Line Four (204)'  
   ];
 
   // Put the row’s agent first if present; then add the rest without duplicates
@@ -5574,57 +5574,58 @@ const actionIcons = `
   };
 
 // Populate inbound calls data
+// Populate inbound calls data
 Object.assign(g.CVAS_CALLS_INBOUND_BY_AGENT, {
-"200": [
-`<tr><td>Today, 1:35 pm</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5030</td><td>1:57</td><td>200</td><td>200</td><td>Line One</td><td>3:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 1:30 pm</td><td>Chloe Bennet</td><td>(313) 555-0120</td><td>567-200-5030</td><td>5:21</td><td>200</td><td>200</td><td>Line One</td><td>6:11</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 10:27 am</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5060</td><td>4:21</td><td>200</td><td>200</td><td>Line One</td><td>4:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 10:23 am</td><td>Monica Alvarez</td><td>(989) 555-0113</td><td>567-200-5030</td><td>2:49</td><td>200</td><td>200</td><td>Line One</td><td>1:52</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 08:16 am</td><td>Leif Hendricksen</td><td>517-555-0162</td><td>567-200-5090</td><td>8:17</td><td>200</td><td>200</td><td>Line One</td><td>2:27</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-`<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>200</td><td>200</td><td>Line One</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-"201": [
-`<tr><td>Today, 1:46 pm</td><td>Tucker Jones</td><td>(989) 555-0128</td><td>567-200-5030</td><td>6:17</td><td>201</td><td>201</td><td>Line Two</td><td>1:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:41 am</td><td>Elizabeth Li</td><td>(313) 555-8471</td><td>567-200-5090</td><td>1:23</td><td>201</td><td>201</td><td>Line Two</td><td>2:17</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 08:08 am</td><td>Coco LaBelle</td><td>(989) 555-0672</td><td>567-200-5030</td><td>0:22</td><td>201</td><td>201</td><td>Line Two</td><td>5:55</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-`<tr><td>Today, 1:41 pm</td><td>Liam Nguyen</td><td>(810) 555-0100</td><td>567-200-5060</td><td>5:29</td><td>201</td><td>201</td><td>Line Two</td><td>8:06</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>(313) 555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>201</td><td>201</td><td>Line Two</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>201</td><td>201</td><td>Line Two</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>201</td><td>201</td><td>Line Two</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-"202": [
-`<tr><td>Today, 1:35 pm</td><td>Jack Burton</td><td>(517) 555-0148</td><td>567-200-5090</td><td>0:42</td><td>202</td><td>202</td><td>Line Three</td><td>7:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 10:58 am</td><td>Lola Turner</td><td>517-555-0170</td><td>567-200-5060</td><td>4:47</td><td>202</td><td>202</td><td>Line Three</td><td>1:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 1:26 pm</td><td>Carlos Riviera</td><td>(517) 555-0177</td><td>567-200-5060</td><td>3:52</td><td>202</td><td>202</td><td>Line Three</td><td>1:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:58 am</td><td>Line Two</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>202</td><td>202</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-"203": [
-`<tr><td>Today, 1:21 pm</td><td>John Travers</td><td>810-555-0192</td><td>567-200-5090</td><td>2:27</td><td>203</td><td>203</td><td>Line Three</td><td>9:41</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:58 am</td><td>Freddie Travis</td><td>800-649-2907</td><td>567-200-5090</td><td>3:48</td><td>203</td><td>203</td><td>Line Three</td><td>21:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-`<tr><td>Today, 1:37 pm</td><td>Maya Brooks</td><td>(517) 555-0126</td><td>567-200-5060</td><td>1:01</td><td>203</td><td>203</td><td>Line Four</td><td>2:05</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>203</td><td>203</td><td>Line Four</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>203</td><td>203</td><td>Line Four</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>203</td><td>203</td><td>Line Four</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-
+  "201": [
+    `<tr><td>Today, 1:35 pm</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5030</td><td>1:57</td><td>201</td><td>201</td><td>Line One</td><td>3:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 1:30 pm</td><td>Chloe Bennet</td><td>(313) 555-0120</td><td>567-200-5030</td><td>5:21</td><td>201</td><td>201</td><td>Line One</td><td>6:11</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 10:27 am</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5060</td><td>4:21</td><td>201</td><td>201</td><td>Line One</td><td>4:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 10:23 am</td><td>Monica Alvarez</td><td>(989) 555-0113</td><td>567-200-5030</td><td>2:49</td><td>201</td><td>201</td><td>Line One</td><td>1:52</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 08:16 am</td><td>Leif Hendricksen</td><td>517-555-0162</td><td>567-200-5090</td><td>8:17</td><td>201</td><td>201</td><td>Line One</td><td>2:27</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>201</td><td>201</td><td>Line One</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+  ],
+  "202": [
+    `<tr><td>Today, 1:46 pm</td><td>Tucker Jones</td><td>(989) 555-0128</td><td>567-200-5030</td><td>6:17</td><td>202</td><td>202</td><td>Line Two</td><td>1:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 11:41 am</td><td>Elizabeth Li</td><td>(313) 555-8471</td><td>567-200-5090</td><td>1:23</td><td>202</td><td>202</td><td>Line Two</td><td>2:17</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 08:08 am</td><td>Coco LaBelle</td><td>(989) 555-0672</td><td>567-200-5030</td><td>0:22</td><td>202</td><td>202</td><td>Line Two</td><td>5:55</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 1:41 pm</td><td>Liam Nguyen</td><td>(810) 555-0100</td><td>567-200-5060</td><td>5:29</td><td>202</td><td>202</td><td>Line Two</td><td>8:06</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>(313) 555-0179</td><td>567-200-5090</td><td>1:01</td><td>202</td><td>202</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>202</td><td>202</td><td>Line Two</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>202</td><td>202</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>202</td><td>202</td><td>Line Two</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>202</td><td>202</td><td>Line Two</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+  ],
+  "203": [
+    `<tr><td>Today, 1:35 pm</td><td>Jack Burton</td><td>(517) 555-0148</td><td>567-200-5090</td><td>0:42</td><td>203</td><td>203</td><td>Line Three</td><td>7:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 10:58 am</td><td>Lola Turner</td><td>517-555-0170</td><td>567-200-5060</td><td>4:47</td><td>203</td><td>203</td><td>Line Three</td><td>1:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 1:26 pm</td><td>Carlos Riviera</td><td>(517) 555-0177</td><td>567-200-5060</td><td>3:52</td><td>203</td><td>203</td><td>Line Three</td><td>1:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 11:58 am</td><td>Jack Burton</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>203</td><td>203</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+  ],
+  "204": [
+    `<tr><td>Today, 1:21 pm</td><td>John Travers</td><td>810-555-0192</td><td>567-200-5090</td><td>2:27</td><td>204</td><td>204</td><td>Line Four</td><td>9:41</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 11:58 am</td><td>Freddie Travis</td><td>800-649-2907</td><td>567-200-5090</td><td>3:48</td><td>204</td><td>204</td><td>Line Four</td><td>21:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 1:37 pm</td><td>Maya Brooks</td><td>(517) 555-0126</td><td>567-200-5060</td><td>1:01</td><td>204</td><td>204</td><td>Line Four</td><td>2:05</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>204</td><td>204</td><td>Line Four</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>204</td><td>204</td><td>Line Four</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+    `<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>204</td><td>204</td><td>Line Four</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+  ]
 });
 
 
+
 Object.assign(g.CVAS_CALLS_OUTBOUND_BY_AGENT, {
-  "200": [
+  "201": [
     outboundRow({
       time: 'Today, 9:26 pm',
       callerNum: '(810) 555-0112',
       dnis: '(810) 555-0112',
-      ext: '200',
+      ext: '201',
       agentName: 'Line One',
       talk: '17:20',
       release: 'Orig: Bye'
     })
   ],
-  "201": [
+  "202": [
     outboundRow({
       time: 'Today, 9:10 pm',
       callerNum: '(517) 555-0170',
@@ -5635,7 +5636,7 @@ Object.assign(g.CVAS_CALLS_OUTBOUND_BY_AGENT, {
       release: 'Orig: Bye'
     })
   ],
-  "202": [
+  "203": [
     outboundRow({
       time: 'Today, 9:30 pm',
       callerNum: '(248) 555-0191',
@@ -5646,7 +5647,7 @@ Object.assign(g.CVAS_CALLS_OUTBOUND_BY_AGENT, {
       release: 'Orig: Bye'
     })
   ],
-  "203": [
+  "204": [
     outboundRow({
       time: 'Today, 9:19 pm',
       callerNum: '(313) 555-0179',
@@ -5656,18 +5657,7 @@ Object.assign(g.CVAS_CALLS_OUTBOUND_BY_AGENT, {
       talk: '05:12',
       release: 'Term: Bye'
     })
-  ],
-  "200": [
-    outboundRow({
-      time: 'Today, 9:53 pm',
-      callerNum: '(248) 555-0110',
-      dnis: '(248) 555-0110',
-      ext: '205',
-      agentName: 'Line Four',
-      talk: '02:36',
-      release: 'Orig: Bye'
 
-    })
   ]
 });
 
@@ -6193,7 +6183,7 @@ function _buildAgentCtgEvents(tr){
 
   // 4) ring cascade
   const roster = [
-    'Line One (200)','Line Two (201)','Line Three (202)','Line Four (203)'
+    'Line One (201)','Line Two (202)','Line Three (203)','Line Four (204)'
   ];
   const primary = (agentName ? `${agentName}${agentExt ? ` (${agentExt})` : ''}` : '') || (agentExt ? `Agent (${agentExt})` : '');
   const seen = new Set(); const cascade = [];
