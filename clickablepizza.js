@@ -149,30 +149,32 @@ tr:hover .listen-btn {
 (function () {
   // Pools
   const names = ["Carlos Rivera","Emily Tran","Mike Johnson","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
-  const extensions = [Line One (200),Line Two (201),Line Three (202), Line Four (203)];
+  const extensions = [200, 201, 202, 203];
   const areaCodes = ["989","517","248","810","313"]; // real ACs; 555-01xx keeps full number fictional
   const CALL_QUEUE = "CallQueue";
 
-  // Outbound agent display names
-  const firstNames = ["Line One (200)", "Line Two (201)", "Line Three (202)", "Line Four (203)"];  
+
+   // Outbound agent display names (literal)
+  const agentNameByExt = {
+    200: "Line One",
+    201: "Line Two",
+    202: "Line Three",
+    203: "Line Four"
+  };
+
   const OUTBOUND_RATE = 0.10; // ~10% outbound, 90% inbound
 
   // State
   const calls = [];
   const pad2 = n => String(n).padStart(2,"0");
 
-  // Helpers
-  function randomName() {
-    let name, guard = 0;
-    do { name = names[Math.floor(Math.random()*names.length)]; guard++; }
-    while (calls.some(c => c.cnam === name) && guard < 50);
-    return name;
+    // Helpers
+  function displayAgent(ext) {
+    const name = agentNameByExt[ext] || "Line";
+    return `${name} (${ext})`;
   }
-  function randomAgentName() {
-    const fn = firstNames[Math.floor(Math.random()*firstNames.length)];
-    const init = alphabet[Math.floor(Math.random()*alphabet.length)];
-    return fn + " " + init + ".";
-  }
+  
+
   function randomPhone() {
     // e.g. 313-555-01xx (NANPA-safe)
     let num;
@@ -183,6 +185,8 @@ tr:hover .listen-btn {
     } while (calls.some(c => c.from === num) || /666/.test(num));
     return num;
   }
+
+  
   function randomDialed() {
     // 800-xxx-xxxx, avoid 666
     let num;
@@ -191,12 +195,15 @@ tr:hover .listen-btn {
     } while (/666/.test(num));
     return num;
   }
+
+  
   function randomExtension() {
     let ext, guard = 0;
     do { ext = extensions[Math.floor(Math.random()*extensions.length)]; guard++; }
     while (calls.some(c => c.ext === ext) && guard < 50);
     return ext;
   }
+
 
   // New call (inbound or outbound)
   function generateCall() {
@@ -208,8 +215,8 @@ tr:hover .listen-btn {
       // Agent dialing a customer
       const dial = randomPhone(); // external number
       return {
-        from: "Ext. " + ext,
-        cnam: randomAgentName(),   // agent display
+        from: displayAgent(ext),
+        cnam: agentNameByExt[ext],  // exact agent name only
         dialed: dial,
         to: dial,                  // outbound: To = dialed
         ext,
