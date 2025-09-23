@@ -7484,9 +7484,7 @@ function openAgentListenModal(agentExt, row, btn) {
     
         const internalMsgs = [
           { name: "Cathy", text: "Can you pull the call recording for order #8457?" },
-          { name: "Jake", text: "I flagged this customer for follow-up. Can you take a look?" },
-          { name: "Tina", text: "Delivery was delayed — let’s comp the garlic knots." },
-          { name: "Marcus", text: "Need eyes on the notes for this ticket — it looks off." }
+          { name: "Jake", text: "I flagged this customer for follow-up. Can you take a look?" }
         ];
 
     
