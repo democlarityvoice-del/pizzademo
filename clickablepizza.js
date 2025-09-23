@@ -6719,7 +6719,7 @@ function openAgentListenModal(agentExt, row, btn) {
         title: '',
         curveType: 'function',
         legend: { position: 'right' },
-        colors: ['#f00', '#0a0', '#00f', '#f90'],
+        colors: ['#3366cc'],
         chartArea: { width: '75%', height: '70%' },
         hAxis: { title: 'Hour' },
         vAxis: { title: 'Calls', viewWindow: { min: 0 } },
@@ -6891,7 +6891,7 @@ function openAgentListenModal(agentExt, row, btn) {
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);            
             width: 1300px;
             height: 540px;
             background: white;
