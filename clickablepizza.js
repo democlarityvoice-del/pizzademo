@@ -1171,14 +1171,29 @@ if (!window.__cvQueuesTilesInit) {
 
   // ---- CACHES FOR CALL CENTER MODAL ROWS (stable while open) ----
   const REAL_DIDS      = ['(567) 200-5030','(567) 200-5060','(567) 200-5090'];
-  const SAFE_FAKE_AC   = ['511','600','311','322','456'];
-  const AGENT_EXT_POOL = [201,203,204,207,211];
+  const SAFE_FAKE_AC   = ['511','600','311','322','456'];  
   const CVQ_CACHE      = { active:{}, waiting:{} };
+  const AGENT_EXT_POOL = [200, 201, 202, 203];
+   
+  const agentNameByExt = {
+  200: "Line One",
+  201: "Line Two",
+  202: "Line Three",
+  203: "Line Four"
+};
+  
 
   function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
   function safeCallerID(){ return '(' + rand(SAFE_FAKE_AC) + ') 555-01' + String(Math.floor(Math.random()*100)).padStart(2,'0'); }
   function pickAgentExt(i){ return AGENT_EXT_POOL[i % AGENT_EXT_POOL.length]; }
   function pickRealDID(i){ return REAL_DIDS[i % REAL_DIDS.length]; }
+    
+  function displayAgent(ext) {
+  const name = agentNameByExt[ext] || "Line";
+  return name + " (" + ext + ")";
+}
+  
+
 
   // ---- ACTION: Build CALL CENTER "Active Calls" rows for modal ----
   function makeActiveRows(qkey, count){
@@ -1188,7 +1203,7 @@ if (!window.__cvQueuesTilesInit) {
         from: safeCallerID(),
         dialed: pickRealDID(i),
         status: 'Talking',
-        agent: String(pickAgentExt(i)),
+        agent: displayAgent(pickAgentExt(i)),
         start: now - Math.floor(Math.random()*90)*1000
       }));
     } else {
