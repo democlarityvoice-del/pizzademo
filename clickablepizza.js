@@ -171,7 +171,7 @@ tr:hover .listen-btn {
     // Helpers
   function displayAgent(ext) {
     const name = agentNameByExt[ext] || "Line";
-    return `${name} (${ext})`;
+    return name + " (" + ext + ")";
   }
   
 
