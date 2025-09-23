@@ -173,7 +173,15 @@ tr:hover .listen-btn {
     const name = agentNameByExt[ext] || "Line";
     return name + " (" + ext + ")";
   }
-  
+
+      function randomName() {
+      let name, guard = 0;
+      do {
+        name = names[Math.floor(Math.random() * names.length)];
+        guard++;
+      } while (calls.some(c => c.cnam === name) && guard < 50);
+      return name;
+    }
 
   function randomPhone() {
     // e.g. 313-555-01xx (NANPA-safe)
@@ -261,7 +269,7 @@ tr:hover .listen-btn {
     const now = Date.now();
     calls.forEach(c => {
       if (!c.outbound && c.to === CALL_QUEUE && now - c.start > 5000) {
-        c.to = "Ext. " + c.ext;  // no agent name here
+        c.to = displayAgent(c.ext);
       }
     });
   }
