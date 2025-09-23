@@ -4502,7 +4502,7 @@ document.addEventListener('click', function (e) {
   const magnifyIcon = 'https://raw.githubusercontent.com/democlarityvoice-del/clickabledemo/refs/heads/main/magnifying-glass-solid-full.svg';
 
   const CVQ_DATA = {
-    "Main Routing":     { VOL: 21, CO: 10, ATT: "3:14", AH: "0:00", AC: null, AWT: "2:12" },
+    "Main Routing":     { VOL: 21, CH: 20, ATT: "3:14", AH: "0:00", AC: null, AWT: "2:12" },
   };
 
   const QUEUE_NAMES = Object.keys(CVQ_DATA);
@@ -5522,17 +5522,17 @@ const isAgentStatsPage = () =>
 
   // === Real Data from user ===
   const CVAS_INBOUND = {
-    '200': { CH: 5, TT: '18:10', ATT: '18:10' },
-    '201': { CH: 3, TT: '09:40', ATT: '09:40' },
-    '202': { CH: 4, TT: '13:26', ATT: '13:26' },
-    '203': { CH: 2, TT: '30:57', ATT: '30:57' },
+    '201': { CH: 6, TT: '4:01', ATT: '4:01' },
+    '202': { CH: 9, TT: '03:02', ATT: '03:02' },
+    '203': { CH: 4, TT: '03:27', ATT: '03:27' },
+    '204': { CH: 6, TT: '02:31', ATT: '02:31' },
   };
 
   const CVAS_AHT = {
-    '200': { AHT: '05:55' },
-    '201': { AHT: '05:18' },
-    '202': { AHT: '08:09' },
-    '203': { AHT: '12:03' },   
+    '201': { AHT: '05:55' },
+    '202': { AHT: '03:53' },
+    '203': { AHT: '08:14' },
+    '204': { AHT: '02:54' },   
   };
 
 
@@ -6701,21 +6701,21 @@ function openAgentListenModal(agentExt, row, btn) {
     };
     document.head.appendChild(googleScript);
     
-    // Replace the old renderSummaryChart with this version
+    // Render Summary
     function renderSummaryChart(containerId) {
       const container = document.getElementById(containerId);
       if (!container) return;
       container.innerHTML = '<div id="summary-chart-google" style="width:100%; height:400px;"></div>';
     
       const data = google.visualization.arrayToDataTable([
-          ['Hour', 'New Sales (301)', 'Existing Cust (302)', 'Billing (303)', 'Main Routing (300)'],
-          ['8am', 3, 0, 0, 0],
-          ['9am', 2, 3, 0, 0],       // Existing Cust visible here
-          ['10am', 3, 2, 1, 0],      // Shared slot (leave 0 for Main Routing)
-          ['11am', 4, 0, 1, 2],      // Add Main Routing here
-          ['12pm', 1, 0, 0, 3],      // And again here
-          ['1pm', 5, 0, 1, 0],
-          ['2pm', 3, 0, 0, 0]
+          ['Hour', 'Main Routing (123)'],    
+          ['10am', 3],      
+          ['11am', 14],      
+          ['12pm', 21],      /
+          ['1pm', 25],
+          ['2pm', 23]
+          ['3pm', 13],
+          ['4pm', 12], 
         ]);
 
     
@@ -6755,9 +6755,16 @@ function openAgentListenModal(agentExt, row, btn) {
       function drawCharts() {
      
       const lineData = google.visualization.arrayToDataTable([
-        ['Hour', 'All'],
-        ['0:00', 0], ['4:00', 2], ['8:00', 5], ['12:00', 9], ['16:00', 6], ['20:00', 3]
-      ]);
+          ['Hour', 'All'],
+          ['10:00', 3],
+          ['11:00', 14],
+          ['12:00', 21],
+          ['13:00', 25],
+          ['14:00', 23],
+          ['15:00', 13],
+          ['16:00', 12],
+        ]);
+
       new google.visualization.LineChart(document.getElementById('chart-summary'))
         .draw(lineData, {
           chartArea: { width: '80%', height: '70%' },
@@ -6773,7 +6780,7 @@ function openAgentListenModal(agentExt, row, btn) {
       // GREEN COLUMN CHART (Inbound)
       const inboundData = google.visualization.arrayToDataTable([
         ['Day', 'Calls'],
-        ['Sun', 12], ['Mon', 20], ['Tue', 32], ['Wed', 24], ['Thu', 28], ['Fri', 18]
+        ['Sun', 22], ['Mon', 20], ['Tue', 32], ['Wed', 24], ['Thu', 28], ['Fri', 38], ['Sat', 49]
       ]);
       new google.visualization.ColumnChart(document.getElementById('chart-inbound'))
         .draw(inboundData, {
@@ -6788,12 +6795,12 @@ function openAgentListenModal(agentExt, row, btn) {
       
         // PIE CHART (Employee - real totals)
       const pieData = google.visualization.arrayToDataTable([
-        ['Employee', 'Calls'],
-        ['Line One', 60],
-        ['Line Two', 42],
-        ['Line Three', 56],
-        ['Line Three', 13]
-      ]);
+          ['Employee', 'Calls'],
+          ['Line One', 44],
+          ['Line Two', 26],
+          ['Line Three', 35],
+          ['Line Four', 29]
+        ]);
     
       new google.visualization.PieChart(document.getElementById('chart-employee'))
         .draw(pieData, {
@@ -6815,15 +6822,16 @@ function openAgentListenModal(agentExt, row, btn) {
 
         // OUTBOUND CHART (Fixed version using Google Charts only)
       const outboundData = google.visualization.arrayToDataTable([
-        ['Day','Line One','Line Two','Line Three','Line Four'],
-        ['Sun', 2, 1, 2, 0, 1, 2, 1],
-        ['Mon',10, 7, 9, 2, 4,10, 5],
-        ['Tue',12, 8,10, 2, 4,12, 5],
-        ['Wed', 9, 7,10, 2, 5,10, 4],
-        ['Thu',10, 7, 9, 3, 5, 9, 4],
-        ['Fri',12, 8,10, 3, 6,12, 6],
-        ['Sat', 5, 4, 6, 1, 3, 7, 4],
-      ]);
+          ['Day','Line One','Line Two','Line Three','Line Four'],
+          ['Sun', 1, 1, 0, 1],
+          ['Mon', 3, 2, 1, 2],
+          ['Tue', 4, 2, 2, 2],
+          ['Wed', 3, 2, 2, 1],
+          ['Thu', 4, 3, 2, 2],
+          ['Fri', 5, 4, 3, 3],
+          ['Sat', 3, 2, 2, 1]
+        ]);
+
 
       new google.visualization.ComboChart(document.getElementById('chart-outbound'))
         .draw(outboundData, {
@@ -6863,13 +6871,13 @@ function openAgentListenModal(agentExt, row, btn) {
             <thead>
               <tr style="background: #eee;">
                 <th style="padding: 4px 8px; text-align: left;">Marketing Number</th>
-                <th style="transform: translateX(-4px);">8:00</th>
-                <th style="transform: translateX(-4px);">9:00</th>
                 <th style="transform: translateX(-4px);">10:00</th>
                 <th style="transform: translateX(-4px);">11:00</th>
                 <th style="transform: translateX(-4px);">12:00</th>
                 <th style="transform: translateX(-4px);">1:00</th>
                 <th style="transform: translateX(-4px);">2:00</th>
+                <th style="transform: translateX(-4px);">3:00</th>
+                <th style="transform: translateX(-4px);">4:00</th>
               </tr>
             </thead>
     
@@ -7003,13 +7011,7 @@ function openAgentListenModal(agentExt, row, btn) {
     function renderInboundChart(containerId) {
       const data = google.visualization.arrayToDataTable([
         ['Day', 'Calls'],
-        ['Sun', 0],
-        ['Mon', 12],
-        ['Tue', 20],
-        ['Wed', 43],
-        ['Thu', 26],
-        ['Fri', 31],
-        ['Sat', 20],
+        ['Sun', 22], ['Mon', 20], ['Tue', 32], ['Wed', 24], ['Thu', 28], ['Fri', 38], ['Sat', 49]
       ]);
     
       const options = {
@@ -7099,13 +7101,13 @@ function openAgentListenModal(agentExt, row, btn) {
     function renderOutboundChart(containerId) {
       const data = google.visualization.arrayToDataTable([
         ['Day','Line One','Line Two','Line Three','Line Four'],
-        ['Sun', 2, 1, 2, 0, 1, 2, 1],
-        ['Mon',10, 7, 9, 2, 4,10, 5],
-        ['Tue',12, 8,10, 2, 4,12, 5],
-        ['Wed', 9, 7,10, 2, 5,10, 4],
-        ['Thu',10, 7, 9, 3, 5, 9, 4],
-        ['Fri',12, 8,10, 3, 6,12, 6],
-        ['Sat', 5, 4, 6, 1, 3, 7, 4],
+          ['Sun', 1, 1, 0, 1],
+          ['Mon', 3, 2, 1, 2],
+          ['Tue', 4, 2, 2, 2],
+          ['Wed', 3, 2, 2, 1],
+          ['Thu', 4, 3, 2, 2],
+          ['Fri', 5, 4, 3, 3],
+          ['Sat', 3, 2, 2, 1]
       ]);
     
       const options = {
@@ -7198,10 +7200,10 @@ function openAgentListenModal(agentExt, row, btn) {
            function renderEmployeeChart(containerId) {
          const data = google.visualization.arrayToDataTable([
               ['Employee', 'Calls'],
-              ['Line One', 60],
-              ['Line Two', 42],
-              ['Line Three', 49],
-              ['Line Four', 19],
+              ['Line One', 44],
+              ['Line Two', 26],
+              ['Line Three', 35],
+              ['Line Four', 29],
             ]);
 
          const options = {
