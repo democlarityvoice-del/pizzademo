@@ -1089,24 +1089,16 @@ if (!window.__cvQueuesTilesInit) {
 
   // ---- DECLARE CALL CENTER REAL ROUTES (claritydemo) ----
   const IDLE_LINKS = {
-    main:     '/portal/callqueues/editagents/300@claritydemo/Ring+All',
-    sales:    '/portal/callqueues/editagents/301@claritydemo/Round-robin',
-    existing: '/portal/callqueues/editagents/302@claritydemo/Linear+Cascade',
-    billing:  '/portal/callqueues/editagents/303@claritydemo/Ring+All'
+    main:     '/portal/callqueues/editagents/123@pizzademo/Linear+Hunt'
   };
+    
   const QUEUE_EDIT_LINKS = {
-    main:     '/portal/callqueues/edit/300@claritydemo',
-    sales:    '/portal/callqueues/edit/301@claritydemo',
-    existing: '/portal/callqueues/edit/302@claritydemo',
-    billing:  '/portal/callqueues/edit/303@claritydemo'
+    main:     '/portal/callqueues/edit/123@pizzademo',
   };
 
   // ---- DECLARE CALL CENTER QUEUE DATA (demo counts) ----
   const QUEUE_DATA = [
-    { key:'main',     title:'Main Routing (300)',      active:0, waiting:0, timer:false, idle:7 },
-    { key:'sales',    title:'New Sales (301)',         active:3, waiting:2, timer:true,  idle:6 },
-    { key:'existing', title:'Existing Customer (302)', active:1, waiting:3, timer:true,  idle:4 },
-    { key:'billing',  title:'Billing (303)',           active:0, waiting:0, timer:false, idle:1 }
+    { key:'main',    title:'Main (123)',         active:3, waiting:2, timer:true,  idle:4 }
   ];
 
   // ---- UTIL: CALL CENTER scheduleInject (safe RAF/timeout) ----
@@ -1178,9 +1170,9 @@ if (!window.__cvQueuesTilesInit) {
   }
 
   // ---- CACHES FOR CALL CENTER MODAL ROWS (stable while open) ----
-  const REAL_DIDS      = ['(248) 436-3443','(248) 436-3449','(313) 995-9080'];
-  const SAFE_FAKE_AC   = ['900','700','999','888','511','600','311','322','456'];
-  const AGENT_EXT_POOL = [201,203,204,207,211,215,218,219,222,227,231,235];
+  const REAL_DIDS      = ['(567) 200-5030','(567) 200-5060','(567) 200-5090'];
+  const SAFE_FAKE_AC   = ['511','600','311','322','456'];
+  const AGENT_EXT_POOL = [201,203,204,207,211];
   const CVQ_CACHE      = { active:{}, waiting:{} };
 
   function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
