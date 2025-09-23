@@ -7458,31 +7458,37 @@ function openAgentListenModal(agentExt, row, btn) {
        
 
         const survey = [
-          "Please take a moment to complete our survey: www.mrservicetoday.com/survey",
-          "We value your feedback! www.mrservicetoday.com/survey",
-          "Help us improve by filling out a quick survey: www.mrservicetoday.com/survey",
-          "Your opinion matters! www.mrservicetoday.com/survey"
+          "Tell us how your delivery went! www.emberandstonepizza.com/survey",
+          "We'd love your feedback about your order: www.emberandstonepizza.com/survey",
+          "How was your delivery driver? Let us know: www.emberandstonepizza.com/survey",
+          "Rate your order and delivery experience: www.emberandstonepizza.com/survey"
         ];
+
     
         const confirmations = [
-          "Reminder: Your Mr. Service appointment is tomorrow at 9:00am.",
-          "Confirming your appointment for Friday at 1:30pm.",
-          "Your Mr. Service appointment is scheduled for Monday at 10:00am.",
-          "Appointment reminder: Wednesday at 3:00pm.",
-          "Mr. Service will see you tomorrow morning at 8:30am.",
-          "We're scheduled to visit you Friday at 2:15pm."
+          "Thanks for ordering from Ember & Stone Pizza! Your pizza is on the way.",
+          "We’ve received your order and are firing it up now!",
+          "You're all set — your Ember & Stone order is confirmed.",
+          "Order received! We’ll text again when your pizza is out for delivery.",
+          "Thanks! Your Ember & Stone Pizza order is being prepared.",
+          "Your order has been confirmed — we’ll have it out shortly!"
         ];
     
         const customerReplies = [
-          "Yes, I will tell your tech when they arrive.",
-          "Thanks, I’ll be home all day.",
-          "Okay, see you then."
+          "Awesome, what’s the ETA on my delivery?",
+          "Thanks! Can I add a 2-liter of Coke?",
+          "Cool — let me know when the driver’s nearby.",
+          "Sounds good! This is for pickup, right?",
+          "Can I change my order to thin crust?"
         ];
     
         const internalMsgs = [
-          { name: "Cathy", text: "Hey Cathy, can you look at Robert's account?" },
-          { name: "Jake", text: "I see a note on that account for you. Take a look." }
+          { name: "Cathy", text: "Can you pull the call recording for order #8457?" },
+          { name: "Jake", text: "I flagged this customer for follow-up. Can you take a look?" },
+          { name: "Tina", text: "Delivery was delayed — let’s comp the garlic knots." },
+          { name: "Marcus", text: "Need eyes on the notes for this ticket — it looks off." }
         ];
+
     
         const phoneAreaCodes = ['313','248','586','214','469','972'];
         function randomPhone() {
