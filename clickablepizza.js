@@ -1098,7 +1098,7 @@ if (!window.__cvQueuesTilesInit) {
 
   // ---- DECLARE CALL CENTER QUEUE DATA (demo counts) ----
   const QUEUE_DATA = [
-    { key:'main',    title:'Main (123)',         active:3, waiting:2, timer:true,  idle:4 }
+    { key:'main',    title:'Main Routing (123)',         active:3, waiting:2, timer:true,  idle:4 }
   ];
 
   // ---- UTIL: CALL CENTER scheduleInject (safe RAF/timeout) ----
