@@ -149,7 +149,7 @@ tr:hover .listen-btn {
 (function () {
   // Pools
   const names = ["Carlos Rivera","Emily Tran","Mike Johnson","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
-  const extensions = [200,201,202,203];
+  const extensions = [Line One (200),Line Two (201),Line Three (202), Line Four (203)];
   const areaCodes = ["989","517","248","810","313"]; // real ACs; 555-01xx keeps full number fictional
   const CALL_QUEUE = "CallQueue";
 
