@@ -4524,7 +4524,7 @@ const keyNorm = s => (s || '').replace(/\s+/g,' ').trim().toLowerCase();
   const HEADER_TO_STAT = {
     'Call Volume': 'VOL',
     'Calls Offered': 'CO',
-    'Calls Handled': 'CO',
+    'Calls Handled': 'CH',
     'Avg. Talk Time': 'ATT',
     'Average Talk Time': 'ATT',
     'Avg. Hold Time': 'AH',
@@ -4535,7 +4535,7 @@ const keyNorm = s => (s || '').replace(/\s+/g,' ').trim().toLowerCase();
 
   const STAT_DESCRIPTIONS = {
     VOL: 'Number of calls originating through a Call Queue.\nIncludes answered calls, abandoned calls, forwards, and voicemail.',
-    CO: 'Number of calls answered by agent originating through a Call Queue.',
+    CH: 'Number of calls answered by agent originating through a Call Queue.',
     AH: 'Average time a caller spends on hold with an agent.\nExcludes waiting time in the Call Queue.',
     AC: 'Number of calls that abandoned the queue before being offered to an agent.',
     AWT: 'Average number of seconds a caller spent in the selected queue before being dispatched to an agent. If none selected, total for all queues will be displayed.'
@@ -4652,7 +4652,7 @@ function getRowsForQueue(queueNameOnly, queueNumber) {
   function getStatTitle(code) {
     const titles = {
       VOL: 'Call Volume',
-      CO: 'Calls Handled',
+      CH: 'Calls Handled',
       ATT: 'Average Talk Time',
       AH: 'Average Hold Time',
       AC: 'Abandoned Calls',
@@ -4783,8 +4783,8 @@ modal.style.maxHeight = 'calc(100vh - 32px)';
 modal.style.overflow  = 'auto';
 // ==== queueNotesPopover (anchored dropdown, unique IDs) ====
 const QN_REASONS = {
-  'Inbound Sales' : ['Existing customer question', 'Follow up', 'Referral'],
-  'Outbound Sales': ['Cold Call', 'Follow-up']
+  'Inbound Sales' : ['Order Inquiry', 'New Order', 'Status Check'],
+  'Outbound Sales': ['Order Confirmation', 'Location Check']
 };
 
 function openQueueNotesPopover(anchorEl, initial) {
@@ -6883,7 +6883,7 @@ function openAgentListenModal(agentExt, row, btn) {
     
             <tbody>
               <tr>
-                <td style="padding: 4px 8px;">Main Routing (123)</td><td>0</td><td>3</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td>         
+                <td style="padding: 4px 8px;">Main Routing (123)</td><td>3</td><td>14</td><td>21</td><td>25</td><td>23</td><td>13</td><td>12</td>                
               </tr>
             </tbody>
           </table>
