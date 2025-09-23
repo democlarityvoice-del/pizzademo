@@ -3870,61 +3870,56 @@ if (summaryBox) {
   
 // ---- New: Simulated Transcript Injection ----
 
-  var fakeInbound = [
-  { start: 0.00,  end: 6.00,   text: "Thanks for calling Mr. Service. How can I help today?" },
-  { start: 6.10,  end: 12.00,  text: "Hi, this is Dan calling back. I'm looking for an appointment this Saturday." },
-  { start: 12.10, end: 18.00,  text: "We can check that. What address should we use?" },
-  { start: 18.10, end: 24.00,  text: "456 East Elm, on the corner of Madison and Elm." },
-  { start: 24.10, end: 31.00,  text: "Got it—456 East Elm at Madison. One moment while I check availability." },
-  { start: 31.10, end: 38.00,  text: "Sure, thanks." },
-  { start: 38.10, end: 45.00,  text: "Saturday has an 8–10 a.m. window and a 1–3 p.m. window. Which do you prefer?" },
-  { start: 45.10, end: 51.00,  text: "The afternoon, 1–3 p.m., please." },
-  { start: 51.10, end: 58.00,  text: "Reserved. Did you already send pictures of the area we’ll be working on?" },
-  { start: 58.10, end: 64.00,  text: "Yes, I emailed them earlier today." },
-  { start: 64.10, end: 72.00,  text: "I see them here—thanks. The photos look clear and helpful." },
-  { start: 72.10, end: 80.00,  text: "Great, just wanted to be sure you had them." },
-  { start: 80.10, end: 88.00,  text: "Based on the pictures, our standard service should cover everything." },
-  { start: 88.10, end: 95.00,  text: "Okay, sounds good." },
-  { start: 95.10, end: 103.00, text: "You’ll receive a confirmation by text and email for Saturday, 1–3 p.m." },
-  { start: 103.10,end: 110.00, text: "I’ll watch for those." },
-  { start: 110.10,end: 116.00, text: "Any entry notes, pets, or parking details we should add?" },
-  { start: 116.10,end: 120.00, text: "No special notes. Street parking is fine. Thanks for your help." }
+var fakeInbound = [
+  { start: 0.00,  end: 5.00,   text: "Thanks for calling Ember & Stone Pizza. What can I get started for you today?" },
+  { start: 5.10,  end: 10.00,  text: "Hey, this is Dan. I’d like to place an order for delivery." },
+  { start: 10.10, end: 15.00,  text: "Sure thing, Dan. What would you like?" },
+  { start: 15.10, end: 22.00,  text: "I'll do two large pizzas—one pepperoni and one veggie—and an order of buffalo wings." },
+  { start: 22.10, end: 28.00,  text: "Got it. Large pepperoni, large veggie, and buffalo wings. Anything else today?" },
+  { start: 28.10, end: 33.00,  text: "Nope, that should be good." },
+  { start: 33.10, end: 38.00,  text: "Alright, and what’s the delivery address?" },
+  { start: 38.10, end: 44.00,  text: "456 East Elm, right on the corner of Madison and Elm." },
+  { start: 44.10, end: 49.00,  text: "Perfect. And is this for now or later today?" },
+  { start: 49.10, end: 54.00,  text: "As soon as possible. I’m starving." },
+  { start: 54.10, end: 58.00,  text: "Got it—we’re running about 40–45 minutes." },
+  { start: 58.10, end: 63.00,  text: "...Actually, can I add something real quick?" },
+  { start: 63.10, end: 67.00,  text: "Sure, go ahead." },
+  { start: 67.10, end: 72.00,  text: "Can you throw in a Caesar salad? Just the regular size." },
+  { start: 72.10, end: 77.00,  text: "Absolutely. One regular Caesar added. Anything else while I’ve got you?" },
+  { start: 77.10, end: 82.00,  text: "Nope, that’s it. Thanks for being patient." },
+  { start: 82.10, end: 87.00,  text: "No problem at all. So that’s two large pizzas, wings, and a Caesar salad." },
+  { start: 87.10, end: 91.00,  text: "Yep, that’s right." },
+  { start: 91.10, end: 96.00,  text: "You’ll pay the driver at the door. We’ll send a confirmation and ETA shortly." },
+  { start: 96.10, end: 100.00, text: "Awesome. Appreciate it." },
+  { start: 100.10,end: 106.00, text: "Thanks, Dan! We’ll see you at 456 East Elm soon. Enjoy!" }
 ];
 
+
 var fakeInboundSummary =
-  "Dan from 456 East Elm inquired about availability for service this Saturday. " +
-  "They confirmed their location at the corner of Madison and Elm and asked whether Mr. Service had received their pictures. " +
-  "Mr. Service confirmed receipt and reviewed them during the call. " +
-  "Mr. Service confirmed no special notes and that street parking is fine. The next step is the tech appointment for Saturday.";
+  "Dan called Ember & Stone Pizza to place a delivery order. He ordered two large pizzas—one pepperoni and one veggie—and a side of buffalo wings. " +
+  "The order was for 456 East Elm, located at the corner of Madison and Elm. During the call, Dan added a Caesar salad to the order. " +
+  "The representative confirmed the full order, estimated delivery time at 40–45 minutes, and noted payment would be made upon delivery. " +
+  "A confirmation and ETA were to be sent shortly.";
+
 
 var fakeOutbound = [
-  { start: 0.00,  end: 6.00,   text: "Hi Jane. This is Mr. Service, calling to confirm tomorrow’s appointment." },
-  { start: 6.10,  end: 10.00,  text: "Great, thanks for calling." },
-  { start: 10.10, end: 16.00,  text: "We have you at 123 Main Street, just off Elm. Is that correct?" },
-  { start: 16.10, end: 21.00,  text: "Yes, that’s right." },
-  { start: 21.10, end: 28.00,  text: "Your window is 10:00 a.m. to 12:00 p.m. Does that still work?" },
-  { start: 28.10, end: 33.00,  text: "Yep, that window works." },
-  { start: 33.10, end: 40.00,  text: "Perfect. Anyone 18 or older will need to be present during the visit." },
-  { start: 40.10, end: 45.00,  text: "I’ll be here." },
-  { start: 45.10, end: 52.00,  text: "Great. Do you have pets we should plan for?" },
-  { start: 52.10, end: 57.00,  text: "One dog. I’ll put him in the backyard." },
-  { start: 57.10, end: 64.00,  text: "Thanks. Parking on the street near the front entrance is fine." },
-  { start: 64.10, end: 69.00,  text: "Street parking is available." },
-  { start: 69.10, end: 76.00,  text: "Any gate codes or access notes we should add?" },
-  { start: 76.10, end: 81.00,  text: "No codes—front door is fine." },
-  { start: 81.10, end: 90.00,  text: "You’ll get a text when the tech is on the way, including an ETA link." },
-  { start: 90.10, end: 96.00,  text: "Sounds good." },
-  { start: 96.10, end: 104.00, text: "Do you have any questions or special requests before tomorrow?" },
-  { start: 104.10,end: 109.00, text: "No, I think we’re all set." },
-  { start: 109.10,end: 116.00, text: "Perfect. If plans change, reply to the reminder or call before 8 a.m." },
-  { start: 116.10,end: 120.00, text: "Will do—thanks. See you tomorrow." }
+  { start: 0.00,  end: 5.00,   text: "Hi, is this Dan? I'm calling from Ember & Stone Pizza about your recent delivery order." },
+  { start: 5.10,  end: 9.00,   text: "Yes, this is Dan. Everything okay?" },
+  { start: 9.10,  end: 14.00,  text: "Just a quick update—our driver had a bit of trouble finding your address, so your delivery is running behind." },
+  { start: 14.10, end: 19.00,  text: "Oh no, I see. I gave the cross streets too—Madison and Elm." },
+  { start: 19.10, end: 25.00,  text: "Yes, thanks for that. The driver got turned around briefly, but we’ve remade the pizzas fresh just to be safe." },
+  { start: 25.10, end: 30.00,  text: "Okay, I appreciate that. How long do you think it’ll be?" },
+  { start: 30.10, end: 35.00,  text: "We’re estimating about 20 to 25 more minutes. I know it’s not ideal, so we’re including a free order of breadsticks as an apology." },
+  { start: 35.10, end: 40.00,  text: "That’s thoughtful, thanks." },
+  { start: 40.10, end: 46.00,  text: "Also, we’re taking $5 off your total. It’ll be reflected in the final receipt." },
+  { start: 46.10, end: 51.00,  text: "Alright, sounds fair. I’ll be on the lookout." },
+  { start: 51.10, end: 55.00,  text: "Thanks again for your patience, Dan. We’ll be there shortly!" }
 ];
 
 var fakeOutboundSummary =
-  "Mr. Service placed a follow-up call to confirm the customer appointment for Jane is scheduled for tomorrow at 8 a.m. " +
-  "The address was confirmed as 123 Main Street, just off Elm. One dog will be put into the backyard. Street parking is available, and no codes are needed. " +
-  "Jane verified the time and confirmed they had everything needed for the appointment. " +
-  "Mr. Service confirmed tech link reminder text and how to contact the location if plans should change.";
+  "An employee from Ember & Stone Pizza called Dan to inform him of a delivery delay. The driver had difficulty locating his address at 456 East Elm, near Madison. " +
+  "To ensure quality, the team remade the pizzas. As an apology, they added free breadsticks and applied a $5 discount to the order. " +
+  "Dan appreciated the update and agreed to wait for the revised delivery, expected within 20–25 minutes.";
 
  
   function parseDuration(str) {
