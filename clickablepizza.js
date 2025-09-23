@@ -11,6 +11,8 @@ if (!window.__cvDemoInit) {
   const IFRAME_ID      = 'cv-demo-calls-iframe';
   const HOME_ICON_SPEAKER = 'https://raw.githubusercontent.com/democlarityvoice-del/clickabledemo/refs/heads/main/speakericon.svg';
 
+
+
   // -------- BUILD HOME SOURCE -------- //
 function buildSrcdoc() {
   return `<!doctype html><html><head><meta charset="utf-8">
@@ -143,18 +145,31 @@ tr:hover .listen-btn {
     </table>
   </div>
 
-
 <script>
 (function () {
   // Pools
   const names = ["Carlos Rivera","Emily Tran","Mike Johnson","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
-  const extensions = [200,201,202,203];
-  const areaCodes = ["989","517","248","810","313"]; // real ACs; 555-01xx keeps full number fictional
+  const extensions = [200, 201, 202, 203];
+  const areaCodes = ["989","517","248","810","313"];
   const CALL_QUEUE = "CallQueue";
 
   // Outbound agent display names
-  const firstNames = ["Line One", "Line Two", "Line Three", "Line Four"];  
+  const firstNames = ["Line One", "Line Two", "Line Three", "Line Four"];
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const OUTBOUND_RATE = 0.10; // ~10% outbound, 90% inbound
+
+  // Agent label by extension
+  const agentNameByExt = {
+    200: "Line One",
+    201: "Line Two",
+    202: "Line Three",
+    203: "Line Four"
+  };
+
+  function displayAgent(ext) {
+    const name = agentNameByExt[ext] || "Line";
+    return name + " (" + ext + ")";
+  }
 
   // State
   const calls = [];
@@ -173,7 +188,6 @@ tr:hover .listen-btn {
     return fn + " " + init + ".";
   }
   function randomPhone() {
-    // e.g. 313-555-01xx (NANPA-safe)
     let num;
     do {
       const ac = areaCodes[Math.floor(Math.random()*areaCodes.length)];
@@ -183,7 +197,6 @@ tr:hover .listen-btn {
     return num;
   }
   function randomDialed() {
-    // 800-xxx-xxxx, avoid 666
     let num;
     do {
       num = "800-" + (100+Math.floor(Math.random()*900)) + "-" + (1000+Math.floor(Math.random()*9000));
@@ -204,25 +217,23 @@ tr:hover .listen-btn {
     const start = Date.now();
 
     if (outbound) {
-      // Agent dialing a customer
-      const dial = randomPhone(); // external number
+      const dial = randomPhone();
       return {
-        from: "Ext. " + ext,
-        cnam: randomAgentName(),   // agent display
+        from: displayAgent(ext),
+        cnam: randomAgentName(),
         dialed: dial,
-        to: dial,                  // outbound: To = dialed
+        to: dial,
         ext,
         outbound: true,
         start,
         t: () => {
-          const elapsed = Math.min(Date.now()-start, (4*60+32)*1000);
-          const s = Math.floor(elapsed/1000);
-          return String(Math.floor(s/60)) + ":" + pad2(s%60);
+          const elapsed = Math.min(Date.now() - start, (4 * 60 + 32) * 1000);
+          const s = Math.floor(elapsed / 1000);
+          return String(Math.floor(s / 60)) + ":" + pad2(s % 60);
         }
       };
     }
 
-    // Inbound customer call
     const from = randomPhone();
     const cnam = randomName();
     const dialed = randomDialed();
@@ -233,54 +244,51 @@ tr:hover .listen-btn {
       outbound: false,
       start,
       t: () => {
-        const elapsed = Math.min(Date.now()-start, (4*60+32)*1000);
-        const s = Math.floor(elapsed/1000);
-        return String(Math.floor(s/60)) + ":" + pad2(s%60);
+        const elapsed = Math.min(Date.now() - start, (4 * 60 + 32) * 1000);
+        const s = Math.floor(elapsed / 1000);
+        return String(Math.floor(s / 60)) + ":" + pad2(s % 60);
       }
     };
   }
 
   // Lifecycle
   function updateCalls() {
-    // Occasionally remove one
-    if (calls.length > 4 || Math.random() < 0.10) {
-      if (calls.length) calls.splice(Math.floor(Math.random()*calls.length), 1);
+    if (calls.length > 4 || Math.random() < 0.3) {
+      if (calls.length) calls.splice(Math.floor(Math.random() * calls.length), 1);
     }
-    // Keep up to 4
     if (calls.length < 4) calls.push(generateCall());
 
-    // State transitions for inbound only
     const now = Date.now();
     calls.forEach(c => {
       if (!c.outbound && c.to === CALL_QUEUE && now - c.start > 5000) {
-        c.to = "Ext. " + c.ext;  // no agent name here
+        c.to = displayAgent(c.ext);
       }
     });
   }
 
   function render() {
-  const tb = document.getElementById("callsTableBody");
-  if (!tb) return;
-  tb.innerHTML = "";
-  calls.forEach(c => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = \`
-      <td>\${c.from}</td>
-      <td>\${c.cnam}</td>
-      <td>\${c.dialed}</td>
-      <td>\${c.to}</td>
-      <td>\${c.t()}</td>
-      <td>
-        <button class="listen-btn" aria-pressed="false" title="Listen in">
-          <img src="${HOME_ICON_SPEAKER}" alt="">
-        </button>
-      </td>\`;
-    tb.appendChild(tr);
-  });
-}
+    const tb = document.getElementById("callsTableBody");
+    if (!tb) return;
+    tb.innerHTML = "";
+    calls.forEach(c => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${c.from}</td>
+        <td>${c.cnam}</td>
+        <td>${c.dialed}</td>
+        <td>${c.to}</td>
+        <td>${c.t()}</td>
+        <td>
+          <button class="listen-btn" aria-pressed="false" title="Listen in">
+            <img src="${HOME_ICON_SPEAKER}" alt="">
+          </button>
+        </td>`;
+      tb.appendChild(tr);
+    });
+  }
 
   // Seed + loop
-  (function seed(){ calls.push(generateCall()); render(); })();
+  (function seed() { calls.push(generateCall()); render(); })();
   setInterval(() => { updateCalls(); render(); }, 1500);
 
   // Single-active toggle for "Listen in"
@@ -290,13 +298,13 @@ tr:hover .listen-btn {
     if (!btn) return;
     document.querySelectorAll('.listen-btn[aria-pressed="true"]').forEach(b => {
       b.classList.remove("is-active");
-      b.setAttribute("aria-pressed","false");
+      b.setAttribute("aria-pressed", "false");
     });
     btn.classList.add("is-active");
-    btn.setAttribute("aria-pressed","true");
+    btn.setAttribute("aria-pressed", "true");
   });
 })();
-<\/script>
+</script>
 </body></html>`;
 }
 
