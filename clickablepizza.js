@@ -1748,15 +1748,10 @@ if (!window.__cvAgentsPanelInit) {
 
   // Agents (Bob on lunch; Mike/Brittany/Mark show phone icon)
   var AGENTS = [
-  { name: 'Mike Johnson',      ext: 200, status: 'online',  icon: 'phone' },
-  { name: 'Cathy Thomas',      ext: 201, status: 'busy',    icon: 'user'  },
-  { name: 'Jake Lee',          ext: 202, status: 'offline', icon: 'user'  },
-  { name: 'Bob Andersen',      ext: 203, status: 'offline', icon: 'user'  },
-
-  { name: 'Brittany Lawrence', ext: 204, status: 'busy',    icon: 'phone' },
-  { name: 'Alex Roberts',      ext: 205, status: 'online',  icon: 'user'  },
-  { name: 'Mark Sanchez',      ext: 206, status: 'online',  icon: 'phone' },
-  { name: 'John Smith',        ext: 207, status: 'online',  icon: 'user'  }
+  { name: 'Line One',      ext: 200, status: 'busy',  icon: 'phone' },
+  { name: 'Line Two',      ext: 201, status: 'busy',    icon: 'phone'  },
+  { name: 'Line Three',          ext: 202, status: 'online', icon: 'phone'  },
+  { name: 'Line Four',      ext: 203, status: 'busy', icon: 'phone'  }
  ];
 
 
