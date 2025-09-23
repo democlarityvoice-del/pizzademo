@@ -148,7 +148,7 @@ tr:hover .listen-btn {
 <script>
 (function () {
   // Pools
-  const names = ["Carlos Rivera","Emily Tran","Line One","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
+  const names = ["Carlos Rivera","Emily Tran","Jack Burton","Ava Chen","Sarah Patel","Liam Nguyen","Monica Alvarez","Raj Patel","Chloe Bennett","Grace Smith","Jason Tran","Zoe Miller","Ruby Foster","Leo Knight"];
   const extensions = [200, 201, 202, 203];
   const areaCodes = ["989","517","248","810","313"]; // real ACs; 555-01xx keeps full number fictional
   const CALL_QUEUE = "CallQueue";
@@ -3194,22 +3194,22 @@ function extractExt(text){
   // ---- STATIC SNAPSHOT (25 rows) ----
 const rows = [
   { cnam:"Ruby Foster",  from:"(248) 555-0102", q1:"4.5", dialed:"567-200-5030",
-    toName:"", to:"Ext. 206", q2:"4.5", date:"Today, 10:02 pm", duration:"0:56",
+    toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 10:02 pm", duration:"0:56",
     disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
-  { cnam:"John Smith",   from:"207", q1:"4.4", dialed:"(517) 555-0162",
+  { cnam:"Line Three",   from:"202", q1:"4.4", dialed:"(517) 555-0162",
     toName:"", to:"(517) 555-0162", q2:"4.3", date:"Today, 9:59 pm",
     duration:"1:53", disposition:"", release:"Term: Bye", ctgType:"outbound" },
 
   { cnam:"Leo Knight",   from:"(313) 555-0106", q1:"4.3", dialed:"567-200-5090",
-    toName:"", to:"Ext. 206", q2:"4.4", date:"Today, 9:57 pm",
+    toName:"", to:"Ext. 201", q2:"4.4", date:"Today, 9:57 pm",
     duration:"1:53", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Ava Chen",     from:"(313) 555-0151", q1:"4.4", dialed:"567-200-5060",
-    toName:"", to:"Ext. 205", q2:"4.3", date:"Today, 9:55 pm",
+    toName:"", to:"Ext. 203", q2:"4.3", date:"Today, 9:55 pm",
     duration:"0:56", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
-  { cnam:"Alex Roberts", from:"205", q1:"4.5", dialed:"(248) 555-0110",
+  { cnam:"Line Four", from:"203", q1:"4.5", dialed:"(248) 555-0110",
     toName:"", to:"(248) 555-0110", q2:"4.4", date:"Today, 9:53 pm",
     duration:"2:36", disposition:"", release:"Orig: Bye", ctgType:"outbound" },
 
@@ -3218,11 +3218,11 @@ const rows = [
     duration:"9:58", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Raj Patel",    from:"(810) 555-0187", q1:"4.3", dialed:"567-200-5090",
-    toName:"", to:"Ext. 207", q2:"4.2", date:"Today, 9:49 pm",
+    toName:"", to:"Ext. 202", q2:"4.2", date:"Today, 9:49 pm",
     duration:"4:49", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
   { cnam:"Zoe Miller",   from:"(810) 555-0184", q1:"4.4", dialed:"567-200-5060",
-    toName:"", to:"Ext. 210", q2:"4.4", date:"Today, 9:47 pm",
+    toName:"", to:"Ext. 201", q2:"4.4", date:"Today, 9:47 pm",
     duration:"13:01", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Tucker Jones", from:"(989) 555-0128", q1:"4.5", dialed:"567-200-5030",
@@ -3230,11 +3230,11 @@ const rows = [
     duration:"32:06", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Liam Nguyen",  from:"(810) 555-0100", q1:"4.2", dialed:"567-200-5090",
-    toName:"", to:"Ext. 206", q2:"4.3", date:"Today, 9:43 pm",
+    toName:"", to:"Ext. 201", q2:"4.3", date:"Today, 9:43 pm",
     duration:"1:28", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
   { cnam:"Ava Chen",     from:"(313) 555-0108", q1:"4.3", dialed:"567-200-5060",
-    toName:"", to:"Ext. 206", q2:"4.5", date:"Today, 9:41 pm",
+    toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 9:41 pm",
     duration:"15:51", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Maya Brooks",  from:"(517) 555-0126", q1:"4.4", dialed:"567-200-5030",
@@ -3242,15 +3242,15 @@ const rows = [
     duration:"14:27", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
   { cnam:"Jack Burton",  from:"(517) 555-0148", q1:"4.3", dialed:"567-200-5090",
-    toName:"", to:"Ext. 206", q2:"4.3", date:"Today, 9:37 pm",
+    toName:"", to:"Ext. 201", q2:"4.3", date:"Today, 9:37 pm",
     duration:"14:28", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Zoe Miller",   from:"(248) 555-0168", q1:"4.4", dialed:"567-200-5060",
-    toName:"", to:"Ext. 205", q2:"4.4", date:"Today, 9:34 pm",
+    toName:"", to:"Ext. 203", q2:"4.4", date:"Today, 9:34 pm",
     duration:"20:45", disposition:"", release:"Term: Bye", ctgType:"inbound" },
 
   { cnam:"Sarah Patel",  from:"(248) 555-0196", q1:"4.2", dialed:"567-200-5030",
-    toName:"", to:"Ext. 206", q2:"4.5", date:"Today, 9:32 pm",
+    toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 9:32 pm",
     duration:"12:05", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
   { cnam:"Line Three",     from:"202", q1:"4.5", dialed:"(248) 555-0191",
@@ -3278,10 +3278,10 @@ const rows = [
     duration:"5:12", disposition:"", release:"Term: Bye", ctgType:"outbound" },
 
   { cnam:"Ruby Foster",  from:"(810) 555-0175", q1:"4.3", dialed:"567-200-5090",
-    toName:"", to:"Ext. 206", q2:"4.5", date:"Today, 9:17 pm",
+    toName:"", to:"Ext. 201", q2:"4.5", date:"Today, 9:17 pm",
     duration:"10:44", disposition:"", release:"Orig: Bye", ctgType:"inbound" },
 
-  { cnam:"Mark Sanchez", from:"206", q1:"4.5", dialed:"(989) 555-0140",
+  { cnam:"Line Two", from:"201", q1:"4.5", dialed:"(989) 555-0140",
     toName:"", to:"(989) 555-0140", q2:"4.4", date:"Today, 9:15 pm",
     duration:"6:05", disposition:"", release:"Term: Bye", ctgType:"outbound" },
 
@@ -3461,14 +3461,7 @@ var AGENTS = [
   {ext:'200', name:'Line One'},
   {ext:'201', name:'Line Two'},
   {ext:'202', name:'Line Three'},
-  {ext:'203', name:'Line Three'},
-  {ext:'204', name:'Brittany Lawrence'},
-  {ext:'205', name:'Alex Roberts'},
-  {ext:'206', name:'Mark Sanchez'},
-  {ext:'207', name:'John Smith'},
-  {ext:'208', name:'Emily Johnson'},
-  {ext:'209', name:'Michael Williams'},
-  {ext:'210', name:'Jessica Brown'}
+  {ext:'203', name:'Line Four'}  
 ];
 
 // More forgiving ext extractor: "Ext. 206", "(266p)", "266p", "x206"
@@ -4552,30 +4545,30 @@ const keyNorm = s => (s || '').replace(/\s+/g,' ').trim().toLowerCase();
 
 // --- Main Routing
 CVQS_QUEUE_ROWS_BY_NUM["123"] = [
-  `<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>205</td><td>205</td><td>Alex Roberts</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>201</td><td>201</td><td>Line Two</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>203</td><td>203</td><td>Line Four</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 10:58 am</td><td>Lola Turner</td><td>517-555-0170</td><td>567-200-5060</td><td>4:47</td><td>202</td><td>202</td><td>Line Three</td><td>1:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 10:27 am</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5060</td><td>4:21</td><td>200</td><td>200</td><td>Line One</td><td>4:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 10:23 am</td><td>Monica Alvarez</td><td>(989) 555-0113</td><td>567-200-5030</td><td>2:49</td><td>200</td><td>200</td><td>Line One</td><td>1:52</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>205</td><td>205</td><td>Alex Roberts</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>201</td><td>201</td><td>Line Two</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>203</td><td>203</td><td>Line Four</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 08:16 am</td><td>Leif Hendricksen</td><td>517-555-0162</td><td>567-200-5090</td><td>8:17</td><td>200</td><td>200</td><td>Line One</td><td>2:27</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 08:08 am</td><td>Coco LaBelle</td><td>(989) 555-0672</td><td>567-200-5030</td><td>0:22</td><td>201</td><td>201</td><td>Line Two</td><td>5:55</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
 
   `<tr><td>Today, 1:26 pm</td><td>Carlos Riviera</td><td>(517) 555-0177</td><td>567-200-5060</td><td>3:52</td><td>202</td><td>202</td><td>Line Three</td><td>1:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>201</td><td>201</td><td>Line Two</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 1:21 pm</td><td>John Travers</td><td>810-555-0192</td><td>567-200-5090</td><td>2:27</td><td>203</td><td>203</td><td>Line Four</td><td>9:41</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>204</td><td>204</td><td>Brittany Lawrence</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>200</td><td>200</td><td>Line One</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
   `<tr><td>Today, 11:58 am</td><td>Freddie Travis</td><td>800-649-2907</td><td>567-200-5090</td><td>3:48</td><td>203</td><td>203</td><td>Line Four</td><td>21:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 11:58 am</td><td>Mark Sanchez</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>202</td><td>202</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 11:58 am</td><td>Line Two</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>202</td><td>202</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
 
   // the 5 adjusted ones (with corrected extensions)
-  `<tr><td>Today, 2:28 pm</td><td>Noah James</td><td>(248) 555-0123</td><td>248-436-3442</td><td>1:13</td><td>214</td><td>210</td><td>Jessica Brown</td><td>4:02</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 2:19 pm</td><td>Camila Ortiz</td><td>(734) 555-0148</td><td>248-436-3445</td><td>0:57</td><td>209</td><td>209</td><td>Michael Williams</td><td>2:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 2:05 pm</td><td>Owen Patel</td><td>(586) 555-0162</td><td>567-200-5090</td><td>2:41</td><td>213</td><td>212</td><td>Sara Davis</td><td>6:33</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>205</td><td>205</td><td>Alex Roberts</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:43 pm</td><td>Michael Chen</td><td>(313) 555-0195</td><td>248-436-3450</td><td>3:26</td><td>210</td><td>210</td><td>Jessica Brown</td><td>5:04</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
+  `<tr><td>Today, 2:28 pm</td><td>Noah James</td><td>(248) 555-0123</td><td>248-436-3442</td><td>1:13</td><td>214</td><td>201</td><td>Line Two</td><td>4:02</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 2:19 pm</td><td>Camila Ortiz</td><td>(734) 555-0148</td><td>248-436-3445</td><td>0:57</td><td>200</td><td>200</td><td>Line One</td><td>2:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 2:05 pm</td><td>Owen Patel</td><td>(586) 555-0162</td><td>567-200-5090</td><td>2:41</td><td>213</td><td>203</td><td>Line Four</td><td>6:33</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>203</td><td>203</td><td>Line Four</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:43 pm</td><td>Michael Chen</td><td>(313) 555-0195</td><td>248-436-3450</td><td>3:26</td><td>201</td><td>201</td><td>Line Two</td><td>5:04</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
 ];
 CVQS_QUEUE_ROWS_BY_NAME[keyNorm("Main Routing")] = CVQS_QUEUE_ROWS_BY_NUM["123"];
 
@@ -4583,11 +4576,11 @@ CVQS_QUEUE_ROWS_BY_NAME[keyNorm("Main Routing")] = CVQS_QUEUE_ROWS_BY_NUM["123"]
 
 // Your current default five rows for everyone else
 const CVQS_DEFAULT_ROWS = [
-  `<tr><td>Today, 2:13 pm</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5030</td><td>1:22</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>14:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 2:06 pm</td><td>Leo Knight</td><td>(313) 555-0106</td><td>567-200-5060</td><td>2:49</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>0:59</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:58 pm</td><td>Ava Chen</td><td>(313) 555-0151</td><td>567-200-5030</td><td>1:01</td><td>205</td><td>205</td><td>Alex Roberts</td><td>5:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:54 pm</td><td>Zoe Miller</td><td>(248) 555-0165</td><td>567-200-5090</td><td>3:47</td><td>207</td><td>207</td><td>John Smith</td><td>3:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
-  `<tr><td>Today, 1:50 pm</td><td>Raj Patel</td><td>(810) 555-0187</td><td>567-200-5090</td><td>4:24</td><td>210</td><td>210</td><td>Jessica Brown</td><td>5:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
+  `<tr><td>Today, 2:13 pm</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5030</td><td>1:22</td><td>201</td><td>201</td><td>Line Two</td><td>14:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 2:06 pm</td><td>Leo Knight</td><td>(313) 555-0106</td><td>567-200-5060</td><td>2:49</td><td>201</td><td>201</td><td>Line Two</td><td>0:59</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:58 pm</td><td>Ava Chen</td><td>(313) 555-0151</td><td>567-200-5030</td><td>1:01</td><td>203</td><td>203</td><td>Line Four</td><td>5:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:54 pm</td><td>Zoe Miller</td><td>(248) 555-0165</td><td>567-200-5090</td><td>3:47</td><td>202</td><td>202</td><td>Line Three</td><td>3:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`,
+  `<tr><td>Today, 1:50 pm</td><td>Raj Patel</td><td>(810) 555-0187</td><td>567-200-5090</td><td>4:24</td><td>201</td><td>201</td><td>Line Two</td><td>5:51</td><td>Term: Bye</td><td>Connect</td><td class="cvqs-action-cell"></td></tr>`
 ];
 
 
@@ -5533,21 +5526,13 @@ const isAgentStatsPage = () =>
     '201': { CH: 3, TT: '09:40', ATT: '09:40' },
     '202': { CH: 4, TT: '13:26', ATT: '13:26' },
     '203': { CH: 2, TT: '30:57', ATT: '30:57' },
-    '204': { CH: 1, TT: '03:53', ATT: '03:53' },
-    '205': { CH: 4, TT: '30:27', ATT: '30:27' },
-    '206': { CH: 6, TT: '38:34', ATT: '38:34' },
-    '207': { CH: 0, TT: '00:00', ATT: '00:00' },
   };
 
   const CVAS_AHT = {
     '200': { AHT: '05:55' },
     '201': { AHT: '05:18' },
     '202': { AHT: '08:09' },
-    '203': { AHT: '12:03' },
-    '204': { AHT: '03:53' },
-    '205': { AHT: '06:36' },
-    '206': { AHT: '06:22' },
-    '207': { AHT: '01:53' },
+    '203': { AHT: '12:03' },   
   };
 
 
@@ -5596,40 +5581,34 @@ Object.assign(g.CVAS_CALLS_INBOUND_BY_AGENT, {
 `<tr><td>Today, 10:27 am</td><td>Ruby Foster</td><td>(248) 555-0102</td><td>567-200-5060</td><td>4:21</td><td>200</td><td>200</td><td>Line One</td><td>4:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 10:23 am</td><td>Monica Alvarez</td><td>(989) 555-0113</td><td>567-200-5030</td><td>2:49</td><td>200</td><td>200</td><td>Line One</td><td>1:52</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 08:16 am</td><td>Leif Hendricksen</td><td>517-555-0162</td><td>567-200-5090</td><td>8:17</td><td>200</td><td>200</td><td>Line One</td><td>2:27</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+`<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>200</td><td>200</td><td>Line One</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
 ],
 "201": [
 `<tr><td>Today, 1:46 pm</td><td>Tucker Jones</td><td>(989) 555-0128</td><td>567-200-5030</td><td>6:17</td><td>201</td><td>201</td><td>Line Two</td><td>1:28</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 11:41 am</td><td>Elizabeth Li</td><td>(313) 555-8471</td><td>567-200-5090</td><td>1:23</td><td>201</td><td>201</td><td>Line Two</td><td>2:17</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 08:08 am</td><td>Coco LaBelle</td><td>(989) 555-0672</td><td>567-200-5030</td><td>0:22</td><td>201</td><td>201</td><td>Line Two</td><td>5:55</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+`<tr><td>Today, 1:41 pm</td><td>Liam Nguyen</td><td>(810) 555-0100</td><td>567-200-5060</td><td>5:29</td><td>201</td><td>201</td><td>Line Two</td><td>8:06</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>(313) 555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>201</td><td>201</td><td>Line Two</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>201</td><td>201</td><td>Line Two</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>201</td><td>201</td><td>Line Two</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>201</td><td>201</td><td>Line Two</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
 ],
 "202": [
 `<tr><td>Today, 1:35 pm</td><td>Jack Burton</td><td>(517) 555-0148</td><td>567-200-5090</td><td>0:42</td><td>202</td><td>202</td><td>Line Three</td><td>7:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 10:58 am</td><td>Lola Turner</td><td>517-555-0170</td><td>567-200-5060</td><td>4:47</td><td>202</td><td>202</td><td>Line Three</td><td>1:24</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 1:26 pm</td><td>Carlos Riviera</td><td>(517) 555-0177</td><td>567-200-5060</td><td>3:52</td><td>202</td><td>202</td><td>Line Three</td><td>1:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:58 am</td><td>Mark Sanchez</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>202</td><td>202</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+`<tr><td>Today, 11:58 am</td><td>Line Two</td><td>989-555-0213</td><td>567-200-5090</td><td>4:29</td><td>202</td><td>202</td><td>Line Three</td><td>2:47</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
 ],
 "203": [
 `<tr><td>Today, 1:21 pm</td><td>John Travers</td><td>810-555-0192</td><td>567-200-5090</td><td>2:27</td><td>203</td><td>203</td><td>Line Three</td><td>9:41</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
 `<tr><td>Today, 11:58 am</td><td>Freddie Travis</td><td>800-649-2907</td><td>567-200-5090</td><td>3:48</td><td>203</td><td>203</td><td>Line Three</td><td>21:16</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
+`<tr><td>Today, 1:37 pm</td><td>Maya Brooks</td><td>(517) 555-0126</td><td>567-200-5060</td><td>1:01</td><td>203</td><td>203</td><td>Line Four</td><td>2:05</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>203</td><td>203</td><td>Line Four</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>203</td><td>203</td><td>Line Four</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
+`<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>203</td><td>203</td><td>Line Four</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
 ],
-"200": [
-`<tr><td>Today, 12:06 pm</td><td>Thomas Lee</td><td>517-555-0157</td><td>567-200-5030</td><td>1:21</td><td>200</td><td>200</td><td>Brittany Lawrence</td><td>3:53</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-"205": [
-`<tr><td>Today, 1:37 pm</td><td>Maya Brooks</td><td>(517) 555-0126</td><td>567-200-5060</td><td>1:01</td><td>205</td><td>205</td><td>Alex Roberts</td><td>2:05</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:18 am</td><td>Sarah Patel</td><td>(248) 555-0196</td><td>567-200-5090</td><td>2:22</td><td>205</td><td>205</td><td>Alex Roberts</td><td>17:29</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 08:42 am</td><td>Alexander Chen</td><td>(517) 555-0122</td><td>567-200-5090</td><td>4:24</td><td>205</td><td>205</td><td>Alex Roberts</td><td>7:42</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 1:59 pm</td><td>Harper Green</td><td>(947) 555-0179</td><td>248-436-3447</td><td>1:08</td><td>205</td><td>205</td><td>Alex Roberts</td><td>3:11</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-"206": [
-`<tr><td>Today, 1:41 pm</td><td>Liam Nguyen</td><td>(810) 555-0100</td><td>567-200-5060</td><td>5:29</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>8:06</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>(313) 555-0179</td><td>567-200-5090</td><td>1:01</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 11:22 am</td><td>JR Knight</td><td>248-555-0144</td><td>567-200-5030</td><td>3:49</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>8:35</td><td>Term: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 09:56 am</td><td>Rory Davis</td><td>313-555-0179</td><td>567-200-5090</td><td>1:01</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>8:17</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 09:29 am</td><td>Tanya Roberts</td><td>313-555-3443</td><td>567-200-5030</td><td>3:47</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>0:57</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`,
-`<tr><td>Today, 1:24 pm</td><td>Martin Smith</td><td>800-909-5384</td><td>567-200-5090</td><td>4:11</td><td>206</td><td>206</td><td>Mark Sanchez</td><td>4:22</td><td>Orig: Bye</td><td>Connect</td><td class="cvas-action-cell">${actionIcons}</td></tr>`
-],
-"207": []
+
 });
 
 
@@ -5678,38 +5657,16 @@ Object.assign(g.CVAS_CALLS_OUTBOUND_BY_AGENT, {
       release: 'Term: Bye'
     })
   ],
-  "200": [],
-  "205": [
+  "200": [
     outboundRow({
       time: 'Today, 9:53 pm',
       callerNum: '(248) 555-0110',
       dnis: '(248) 555-0110',
       ext: '205',
-      agentName: 'Alex Roberts',
+      agentName: 'Line Four',
       talk: '02:36',
       release: 'Orig: Bye'
-    })
-  ],
-  "206": [
-    outboundRow({
-      time: 'Today, 9:15 pm',
-      callerNum: '(989) 555-0140',
-      dnis: '(989) 555-0140',
-      ext: '206',
-      agentName: 'Mark Sanchez',
-      talk: '06:05',
-      release: 'Term: Bye'
-    })
-  ],
-  "207": [
-    outboundRow({
-      time: 'Today, 9:59 pm',
-      callerNum: '(517) 555-0162',
-      dnis: '(517) 555-0162',
-      ext: '207',
-      agentName: 'John Smith',
-      talk: '01:53',
-      release: 'Term: Bye'
+
     })
   ]
 });
@@ -6236,7 +6193,7 @@ function _buildAgentCtgEvents(tr){
 
   // 4) ring cascade
   const roster = [
-    'Line One (201)','Line Two (202)','Line Three (203)','Line Four (204)'
+    'Line One (200)','Line Two (201)','Line Three (202)','Line Four (203)'
   ];
   const primary = (agentName ? `${agentName}${agentExt ? ` (${agentExt})` : ''}` : '') || (agentExt ? `Agent (${agentExt})` : '');
   const seen = new Set(); const cascade = [];
@@ -6845,10 +6802,7 @@ function openAgentListenModal(agentExt, row, btn) {
         ['Line One', 60],
         ['Line Two', 42],
         ['Line Three', 56],
-        ['Line Three', 13],
-        ['Brittany Lawrence', 28],
-        ['Alex Roberts', 62],
-        ['Mark Sanchez', 29]
+        ['Line Three', 13]
       ]);
     
       new google.visualization.PieChart(document.getElementById('chart-employee'))
@@ -6871,7 +6825,7 @@ function openAgentListenModal(agentExt, row, btn) {
 
         // OUTBOUND CHART (Fixed version using Google Charts only)
       const outboundData = google.visualization.arrayToDataTable([
-        ['Day','Line One','Line Two','Line Three','Line Three','Brittany Lawrence','Alex Roberts','Mark Sanchez'],
+        ['Day','Line One','Line Two','Line Three','Line Four'],
         ['Sun', 2, 1, 2, 0, 1, 2, 1],
         ['Mon',10, 7, 9, 2, 4,10, 5],
         ['Tue',12, 8,10, 2, 4,12, 5],
@@ -7140,10 +7094,7 @@ function openAgentListenModal(agentExt, row, btn) {
                   <tr><td>Line One</td><td>2</td><td>10</td><td>12</td><td>9</td><td>10</td><td>12</td><td>5</td><td>60</td></tr>
                   <tr><td>Line Two</td><td>1</td><td>7</td><td>8</td><td>7</td><td>7</td><td>8</td><td>4</td><td>42</td></tr>
                   <tr><td>Line Three</td><td>2</td><td>9</td><td>10</td><td>10</td><td>9</td><td>10</td><td>6</td><td>56</td></tr>
-                  <tr><td>Line Three</td><td>0</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td><td>1</td><td>13</td></tr>
-                  <tr><td>Brittany Lawrence</td><td>1</td><td>4</td><td>4</td><td>5</td><td>5</td><td>6</td><td>3</td><td>28</td></tr>
-                  <tr><td>Alex Roberts</td><td>2</td><td>10</td><td>12</td><td>10</td><td>9</td><td>12</td><td>7</td><td>62</td></tr>
-                  <tr><td>Mark Sanchez</td><td>1</td><td>5</td><td>5</td><td>4</td><td>4</td><td>6</td><td>4</td><td>29</td></tr>
+                  <tr><td>Line Four</td><td>0</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td><td>1</td><td>13</td></tr>
                 </tbody>
               </table>
             </div>
@@ -7157,7 +7108,7 @@ function openAgentListenModal(agentExt, row, btn) {
 
     function renderOutboundChart(containerId) {
       const data = google.visualization.arrayToDataTable([
-        ['Day','Line One','Line Two','Line Three','Line Three','Brittany Lawrence','Alex Roberts','Mark Sanchez'],
+        ['Day','Line One','Line Two','Line Three','Line Four'],
         ['Sun', 2, 1, 2, 0, 1, 2, 1],
         ['Mon',10, 7, 9, 2, 4,10, 5],
         ['Tue',12, 8,10, 2, 4,12, 5],
@@ -7241,10 +7192,7 @@ function openAgentListenModal(agentExt, row, btn) {
                   <tr><td>Line One</td><td>3</td><td>11</td><td>9</td><td>10</td><td>10</td><td>11</td><td>6</td><td>60</td></tr>
                   <tr><td>Line Two</td><td>2</td><td>8</td><td>7</td><td>6</td><td>6</td><td>9</td><td>3</td><td>41</td></tr>
                   <tr><td>Line Three</td><td>1</td><td>9</td><td>8</td><td>8</td><td>8</td><td>10</td><td>5</td><td>49</td></tr>
-                  <tr><td>Line Three</td><td>1</td><td>3</td><td>3</td><td>3</td><td>4</td><td>3</td><td>2</td><td>19</td></tr>
-                  <tr><td>Brittany Lawrence</td><td>0</td><td>5</td><td>5</td><td>6</td><td>6</td><td>7</td><td>2</td><td>31</td></tr>
-                  <tr><td>Alex Roberts</td><td>3</td><td>11</td><td>13</td><td>11</td><td>10</td><td>11</td><td>7</td><td>66</td></tr>
-                  <tr><td>Mark Sanchez</td><td>1</td><td>4</td><td>4</td><td>3</td><td>4</td><td>5</td><td>3</td><td>24</td></tr>
+                  <tr><td>Line Four</td><td>1</td><td>3</td><td>3</td><td>3</td><td>4</td><td>3</td><td>2</td><td>19</td></tr>
                 </tbody>
               </table>
             </div>
@@ -7263,10 +7211,7 @@ function openAgentListenModal(agentExt, row, btn) {
               ['Line One', 60],
               ['Line Two', 42],
               ['Line Three', 49],
-              ['Line Three', 19],
-              ['Brittany Lawrence', 31],
-              ['Alex Roberts', 66],
-              ['Mark Sanchez', 24],
+              ['Line Four', 19],
             ]);
 
          const options = {
