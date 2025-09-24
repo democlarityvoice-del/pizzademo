@@ -3932,94 +3932,96 @@ var fakeOutboundSummary =
   const maxSecs = parseDuration(row.duration || "2:00");
   const segList = document.getElementById('cv-ai-seglist');
   const durationDisplay = document.getElementById('cv-ai-fakeduration');
-
   
 
-if (segList && durationDisplay) {
-  segList.innerHTML = '';
-
-  const direction = row?.ctgType || 'inbound';
-  const script = direction === 'inbound' ? fakeInbound : fakeOutbound;
-
-  const summaryEl = document.getElementById('cv-ai-summary');
-  if (summaryEl) {
-    summaryEl.textContent = direction === 'inbound' ? fakeInboundSummary : fakeOutboundSummary;
-  }
-
-
-script.forEach(function (seg) {
-  var el = document.createElement('div');
-  el.className = 'cv-ai-segment';
-  el.dataset.start = seg.start;
-
-  // === Container styling ===
-  el.style.display = 'flex';
-  el.style.flexDirection = 'column';
-  el.style.padding = '14px 16px';
-  el.style.marginBottom = '10px';
-  el.style.borderRadius = '10px';
-  el.style.border = '1px solid #e5e7eb';
-  el.style.cursor = 'pointer';
-  el.style.background = '#fff';
-  el.style.transition = 'all 0.2s ease';
-
-  // === Timestamp row ===
-  var ts = document.createElement('div');
-  ts.style.fontSize = '13px';
-  ts.style.fontWeight = '600';
-  ts.style.color = '#1e3a8a'; // dark blue
-  ts.style.marginBottom = '6px';
-
-  // you already store start/end in seg
-  var endTime = seg.end || seg.start + 3; // fallback if no end
-  ts.textContent = seg.start.toFixed(1) + 's – ' + endTime.toFixed(1) + 's';
-
-  // === Transcript text ===
-  var txt = document.createElement('div');
-  txt.style.fontSize = '15px';
-  txt.style.lineHeight = '1.5';
-  txt.style.color = '#111827';
-  txt.textContent = seg.text;
-
-  // assemble
-  el.appendChild(ts);
-  el.appendChild(txt);
-
-  // === Hover + Active logic ===
-  el.addEventListener('mouseenter', function () {
-    if (!el.classList.contains('active')) {
-      el.style.border = '1px solid #93c5fd';
+    
+  if (segList && durationDisplay) {
+    segList.innerHTML = '';
+  
+    // ✅ Determine correct direction from rows[idx]
+    const direction = row?.ctgType || 'inbound';
+    const script = direction === 'inbound' ? fakeInbound : fakeOutbound;
+  
+    const summaryEl = document.getElementById('cv-ai-summary');
+    if (summaryEl) {
+      summaryEl.textContent = direction === 'inbound' ? fakeInboundSummary : fakeOutboundSummary;
     }
-  });
-  el.addEventListener('mouseleave', function () {
-    if (!el.classList.contains('active')) {
+
+
+
+    script.forEach(function (seg) {
+      var el = document.createElement('div');
+      el.className = 'cv-ai-segment';
+      el.dataset.start = seg.start;
+    
+      // === Container styling ===
+      el.style.display = 'flex';
+      el.style.flexDirection = 'column';
+      el.style.padding = '14px 16px';
+      el.style.marginBottom = '10px';
+      el.style.borderRadius = '10px';
       el.style.border = '1px solid #e5e7eb';
-    }
-  });
+      el.style.cursor = 'pointer';
+      el.style.background = '#fff';
+      el.style.transition = 'all 0.2s ease';
 
-  el.addEventListener('click', function () {
-    // reset all
-    var all = segList.querySelectorAll('.cv-ai-segment');
-    for (var i = 0; i < all.length; i++) {
-      all[i].classList.remove('active');
-      all[i].style.background = '#fff';
-      all[i].style.border = '1px solid #e5e7eb';
-    }
-
-    // activate current
-    el.classList.add('active');
-    el.style.background = '#dbeafe';
-    el.style.border = '1px solid #2563eb';
-
-    // update time
-    var t = Math.min(seg.start, maxSecs);
-    durationDisplay.textContent = formatTime(t) + ' / ' + formatTime(maxSecs);
-  });
-
-  segList.appendChild(el);
-});
-
-
+      // === Timestamp row ===
+      var ts = document.createElement('div');
+      ts.style.fontSize = '13px';
+      ts.style.fontWeight = '600';
+      ts.style.color = '#1e3a8a'; // dark blue
+      ts.style.marginBottom = '6px';
+    
+      // you already store start/end in seg
+      var endTime = seg.end || seg.start + 3; // fallback if no end
+      ts.textContent = seg.start.toFixed(1) + 's – ' + endTime.toFixed(1) + 's';
+    
+      // === Transcript text ===
+      var txt = document.createElement('div');
+      txt.style.fontSize = '15px';
+      txt.style.lineHeight = '1.5';
+      txt.style.color = '#111827';
+      txt.textContent = seg.text;
+    
+      // assemble
+      el.appendChild(ts);
+      el.appendChild(txt);
+    
+      // === Hover + Active logic ===
+      el.addEventListener('mouseenter', function () {
+        if (!el.classList.contains('active')) {
+          el.style.border = '1px solid #93c5fd';
+        }
+      });
+      el.addEventListener('mouseleave', function () {
+        if (!el.classList.contains('active')) {
+          el.style.border = '1px solid #e5e7eb';
+        }
+      });
+    
+      el.addEventListener('click', function () {
+        // reset all
+        var all = segList.querySelectorAll('.cv-ai-segment');
+        for (var i = 0; i < all.length; i++) {
+          all[i].classList.remove('active');
+          all[i].style.background = '#fff';
+          all[i].style.border = '1px solid #e5e7eb';
+        }
+    
+        // activate current
+        el.classList.add('active');
+        el.style.background = '#dbeafe';
+        el.style.border = '1px solid #2563eb';
+    
+        // update time
+        var t = Math.min(seg.start, maxSecs);
+        durationDisplay.textContent = formatTime(t) + ' / ' + formatTime(maxSecs);
+      });
+    
+      segList.appendChild(el);
+    });
+    
+        
 
     // Set initial time display
     durationDisplay.textContent = '0:00 / ' + formatTime(maxSecs);
