@@ -3935,17 +3935,17 @@ var fakeOutboundSummary =
   
 
     
-  if (segList && durationDisplay) {
-    segList.innerHTML = '';
-  
-    // ✅ Determine correct direction from rows[idx]
-    const direction = row?.ctgType || 'inbound';
-    const script = direction === 'inbound' ? fakeInbound : fakeOutbound;
-  
-    const summaryEl = document.getElementById('cv-ai-summary');
-    if (summaryEl) {
-      summaryEl.textContent = direction === 'inbound' ? fakeInboundSummary : fakeOutboundSummary;
-    }
+     if (segList && durationDisplay) {
+      segList.innerHTML = '';
+    
+      // ✅ Determine correct direction from rows[idx]
+      const direction = rows?.[idx]?.ctgType || 'inbound';
+      const script = direction === 'inbound' ? fakeInbound : fakeOutbound;
+    
+      const summaryEl = document.getElementById('cv-ai-summary');
+      if (summaryEl) {
+        summaryEl.textContent = direction === 'inbound' ? fakeInboundSummary : fakeOutboundSummary;
+      }
 
 
 
