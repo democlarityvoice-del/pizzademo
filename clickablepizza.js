@@ -3854,8 +3854,6 @@ if (summaryBox) {
 }
 
 
-
-
   // --- Update CHIPS ---
   const chipWrap = document.getElementById('cv-ai-chips');
   if (chipWrap) {
@@ -3937,14 +3935,16 @@ var fakeOutboundSummary =
 
   
 
-  if (segList && durationDisplay) {
-    segList.innerHTML = '';
+if (segList && durationDisplay) {
+  segList.innerHTML = '';
 
-    const script = row.direction === 'inbound' ? fakeInbound : fakeOutbound;
-    const summaryEl = document.getElementById('cv-ai-summary');
-    if (summaryEl) {
-      summaryEl.textContent = row.direction === 'inbound' ? fakeInboundSummary : fakeOutboundSummary;
-    }
+  const direction = row?.ctgType || 'inbound';
+  const script = direction === 'inbound' ? fakeInbound : fakeOutbound;
+
+  const summaryEl = document.getElementById('cv-ai-summary');
+  if (summaryEl) {
+    summaryEl.textContent = direction === 'inbound' ? fakeInboundSummary : fakeOutboundSummary;
+  }
 
 
 script.forEach(function (seg) {
